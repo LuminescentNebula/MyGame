@@ -3,8 +3,7 @@
     <style name="CardStyle">
         <item name="android:layout_width">100dp</item>
         <item name="android:layout_height">150dp</item>
-        <item name="android:background">@color/purple_200</item>
-        <item name="android:strokeColor">@color/black</item>
+        <item name="android:background">@color/card_background</item>
 
     </style>
 </resources>

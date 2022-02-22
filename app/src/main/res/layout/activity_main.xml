@@ -7,61 +7,91 @@
     android:background="#DEEAAD"
     android:orientation="vertical"
     tools:context=".MainActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="5">
-    </LinearLayout>
+        android:layout_weight="5"></LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="5"
-        android:background="@color/white">
-    </LinearLayout>
+        android:background="@color/white"></LinearLayout>
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="5">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal"
-            >
+        <ImageView
+            android:id="@+id/PlayerCard1"
+            style="@style/CardStyle"
+            android:src="@drawable/card_001_viking"
+            android:visibility="visible"
 
-            <ImageView
-                android:id="@+id/PlayerCard1"
-                style="@style/CardStyle"
-                android:src="@drawable/card_001_viking">
-            </ImageView>
+            app:layout_constraintEnd_toStartOf="@+id/PlayerCard2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
 
-            <ImageView
-                android:id="@+id/PlayerCard2"
-                style="@style/CardStyle"
-                android:src="@drawable/card_002_vampire">
-            </ImageView>
+        <ImageView
+            android:id="@+id/PlayerCard2"
+            style="@style/CardStyle"
+            android:src="@drawable/card_002_vampire"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/PlayerCard3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@+id/PlayerCard1"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
 
-            <ImageView
-                android:id="@+id/PlayerCard3"
-                style="@style/CardStyle"
-                android:src="@drawable/card_003_bird">
-            </ImageView>
+        <ImageView
+            android:id="@+id/PlayerCard3"
+            style="@style/CardStyle"
+            android:src="@drawable/card_003_bird"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/PlayerCard4"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@+id/PlayerCard2"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
 
-            <ImageView
-                android:id="@+id/PlayerCard4"
-                style="@style/CardStyle"
-                android:src="@drawable/card_004_souleater">
-            </ImageView>
-            <ImageView
-                android:id="@+id/PlayerCard4"
-                style="@style/CardStyle"
-                android:src="@drawable/card_005_mandrake">
-            </ImageView>
-        </LinearLayout>
-    </ScrollView>
+        <ImageView
+            android:id="@+id/PlayerCard4"
+            style="@style/CardStyle"
+            android:src="@drawable/card_004_souleater"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/PlayerCard5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@+id/PlayerCard3"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+        <ImageView
+            android:id="@+id/PlayerCard5"
+            style="@style/CardStyle"
+            android:src="@drawable/card_005_mandrake"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@id/PlayerCard6"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@+id/PlayerCard4"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+        <ImageView
+            android:id="@+id/PlayerCard6"
+            style="@style/CardStyle"
+            android:src="@drawable/card_006_instructor"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@+id/PlayerCard5"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </LinearLayout>
