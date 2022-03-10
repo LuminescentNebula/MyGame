@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Game</string>
+    <string name="type0">Human</string>
+    <string name="headline001">Viking</string>
+    <string name="headline002">Vampire</string>
+    <string name="headline004">Soul Eater</string>
+    <string name="headline005">Mandrake</string>
+    <string name="headline006">Safety Engineer</string>
+    <string name="headline007">Ghidorah</string>
+    <string name="type1">Vegetation</string>
+    <string name="type2">Monster</string>
+    <string name="type3">Robot</string>
+    <string name="type4">Undead</string>
+    <string name="type5">Abstract</string>
+    <string name="headline003">Birdie</string>
+    <string name="lore001">For the Odin!</string>
+    <string name="headline008">TODO</string>
+    <string name="headline009">TODO</string>
+    <string name="lore002">TODO</string>
+    <string name="lore003">TODO</string>
+    <string name="lore004">TODO</string>
+    <string name="lore006">TODO</string>
+    <string name="lore008">TODO</string>
+    <string name="lore009">TODO</string>
+</resources>

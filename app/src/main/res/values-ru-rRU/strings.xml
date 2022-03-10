@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Game</string>
+    <string name="headline001">Викинг</string>
+    <string name="headline002">Вампир</string>
+    <string name="headline003">Птичка</string>
+    <string name="headline004">Похититель душ</string>
+    <string name="headline005">Мандрагора</string>
+    <string name="headline006">Инженер по ТБ</string>
+    <string name="headline007">Горыныч</string>
+    <string name="headline008">Сын маминой подруги</string>
+    <string name="headline009">Тыжпрограммист</string>
+    <string name="lore001">Во славу Одина!</string>
+    <string name="type0">Человек</string>
+    <string name="type3">Робот</string>
+    <string name="type4">Нежить</string>
+    <string name="type5">Абстракт</string>
+    <string name="type2">Монстр</string>
+    <string name="type1">Растение</string>
+    <string name="lore002">TODO</string>
+    <string name="lore003">TODO</string>
+    <string name="lore004">TODO</string>
+    <string name="lore008">TODO</string>
+    <string name="lore006">TODO</string>
+    <string name="lore009">TODO</string>
+</resources>

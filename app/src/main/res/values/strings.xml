@@ -1,4 +1,33 @@
 <resources>
     <string name="app_name">My Game</string>
-    <string-array name="viking" />
+
+    <string name="placeholder" translatable="false"></string>
+
+    <string name="headline003">Birdie</string>
+    <string name="headline004">Soul Eater</string>
+    <string name="headline005">Mandrake</string>
+    <string name="headline006">Safety Engineer</string>
+    <string name="headline007">Ghidorah</string>
+    <string name="headline008">Сын маминой подруги</string>
+    <string name="headline009">Тыжпрограммист</string>
+
+    <string name="lore001">For the Odin!</string>
+    <string name="lore002">"Еще одно сравнение с комаром и я кого-нибудь укуш… Чёрт!"</string>
+    <string name="lore003">"Чик чирик"</string>
+    <string name="lore004">"Отличное дополнение для моей коллекции"</string>
+    <string name="lore005" translatable="false">AAAAAAAAAAAAAAAAAAAAAAAAA</string>
+    <string name="lore006">"Где каска?"</string>
+    <string name="lore008">TODO</string>
+    <string name="lore009">"Пробовали выключить и включить?"</string>
+
+    <string name="type1">Vegetation</string>
+    <string name="type2">Monster</string>
+    <string name="type3">Robot</string>
+    <string name="type4">Undead</string>
+    <string name="type5">Abstract</string>
+    <string name="headline001">Viking</string>
+    <string name="headline002">Vampire</string>
+    <string name="type0">Human</string>
+
+
 </resources>
