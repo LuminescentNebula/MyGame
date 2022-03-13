@@ -152,7 +152,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //Не работает
     public void SetParam(View view) {
         EditText field = findViewById(R.id.Param);
         EditText Cardfield = findViewById(R.id.CardParam);
