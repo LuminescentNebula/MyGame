@@ -3,6 +3,8 @@
 
     <string name="placeholder" translatable="false"></string>
 
+    <string name="headline001">Viking</string>
+    <string name="headline002">Vampire</string>
     <string name="headline003">Birdie</string>
     <string name="headline004">Soul Eater</string>
     <string name="headline005">Mandrake</string>
@@ -13,20 +15,19 @@
 
     <string name="lore001">For the Odin!</string>
     <string name="lore002">"Еще одно сравнение с комаром и я кого-нибудь укуш… Чёрт!"</string>
-    <string name="lore003">"Чик чирик"</string>
-    <string name="lore004">"Отличное дополнение для моей коллекции"</string>
+    <string name="lore003">Hoot, hoot</string>
+    <string name="lore004">A fine addition to my collection</string>
     <string name="lore005" translatable="false">AAAAAAAAAAAAAAAAAAAAAAAAA</string>
-    <string name="lore006">"Где каска?"</string>
+    <string name="lore006">Half safety engineer, half coffee</string>
+    <string name="lore007">Burn, kill, eat geese</string>
     <string name="lore008">TODO</string>
-    <string name="lore009">"Пробовали выключить и включить?"</string>
+    <string name="lore009">Have you tried turning it off and on again?</string>
 
     <string name="type1">Vegetation</string>
     <string name="type2">Monster</string>
     <string name="type3">Robot</string>
     <string name="type4">Undead</string>
     <string name="type5">Abstract</string>
-    <string name="headline001">Viking</string>
-    <string name="headline002">Vampire</string>
     <string name="type0">Human</string>
 
 

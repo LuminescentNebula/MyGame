@@ -1,9 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="CardStyle">
-        <item name="android:layout_width">100dp</item>
-        <item name="android:layout_height">150dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:background">@color/card_background</item>
+    </style>
+    <style name="TextStyle">
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
 
+    <style name="CardHeadlineText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLines">1</item>
+        <item name="autoSizeTextType">uniform</item>
+        <item name="android:elegantTextHeight">true</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <style name="CardGemText">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:autoSizeTextType">uniform</item>
+        <item name="android:elegantTextHeight">true</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <style name="CardDescriptionText">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center</item>
+        <item name="autoSizeTextType">uniform</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:elegantTextHeight">true</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <style name="CardLore">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:background">@drawable/lore</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+
+    <style name="CardLoreText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="autoSizeTextType">uniform</item>
+        <item name="android:minLines">5</item>
+        <item name="android:elegantTextHeight">true</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <style name="CardEffect">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:src">@drawable/effect</item>
+
+    </style>
+
+    <style name="CardPicture">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:background">@drawable/card_picture_background</item>
+    </style>
+
+    <style name="CardCost">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:background">@drawable/greengem</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center</item>
+        <item name="autoSizeTextType">uniform</item>
+        <item name="android:elegantTextHeight">true</item>
+    </style>
+
+    <style name="CardQuirk">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:autoSizeTextType">uniform</item>
+        <item name="android:elegantTextHeight">true</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="Text_and_Buttons">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">7sp</item>
+        <item name="android:inputType">number</item>
+    </style>
+
+    <style name="Radio">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">4dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">6sp</item>
     </style>
 </resources>
