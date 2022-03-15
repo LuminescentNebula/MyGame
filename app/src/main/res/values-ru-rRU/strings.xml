@@ -17,10 +17,11 @@
     <string name="type5">Абстракт</string>
     <string name="type2">Монстр</string>
     <string name="type1">Растение</string>
-    <string name="lore002">TODO</string>
-    <string name="lore003">TODO</string>
-    <string name="lore004">TODO</string>
+    <string name="lore002">Еще одно сравнение с комаром и я кого-нибудь укуш… Чёрт!</string>
+    <string name="lore003">Чик чирик</string>
+    <string name="lore004">Отличное дополнение для моей коллекции</string>
     <string name="lore008">TODO</string>
-    <string name="lore006">TODO</string>
-    <string name="lore009">TODO</string>
+    <string name="lore006">Где каска?</string>
+    <string name="lore009">Пробовали выключить и включить?</string>
+    <string name="lore007">Жжёт, убивает, ест гусей</string>
 </resources>
