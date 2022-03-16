@@ -7,7 +7,7 @@ public class Card {
     int cost;
     int hp;
     int power;
-    int type;
+    private final CardType type;
     int[] quirks = {0, 0};
     int[] effects = {0, 0};
     //Почему R.string и R.drawable - это int?
@@ -16,7 +16,7 @@ public class Card {
     int Lore;
     int Picture;
 
-    public Card(int cost, int power, int hp, int type, int Headline, int Lore, int Picture) {
+    public Card(int cost, int power, int hp, CardType type, int Headline, int Lore, int Picture) {
         this.cost = cost;
         this.hp = hp;
         this.power = power;
@@ -72,7 +72,7 @@ public class Card {
         return Headline;
     }
 
-    public int getType() {
+    public CardType getType() {
         return type;
     }
 

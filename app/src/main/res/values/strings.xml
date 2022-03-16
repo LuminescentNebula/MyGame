@@ -23,12 +23,12 @@
     <string name="lore008">TODO</string>
     <string name="lore009">Have you tried turning it off and on again?</string>
 
+    <string name="type0">Human</string>
     <string name="type1">Vegetation</string>
     <string name="type2">Monster</string>
     <string name="type3">Robot</string>
     <string name="type4">Undead</string>
     <string name="type5">Abstract</string>
-    <string name="type0">Human</string>
 
 
 </resources>
