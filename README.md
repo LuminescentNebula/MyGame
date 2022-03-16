@@ -8,4 +8,4 @@ IEP-06-21
 
 2022
 
-https://imgur.com/a/a8pGX3Y
+![Buttons](https://user-images.githubusercontent.com/89836310/158571358-55ba9ba2-48a1-4c13-b38b-5668426c73be.gif)
