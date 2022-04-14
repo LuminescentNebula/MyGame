@@ -16,15 +16,15 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
     final static int  CardAmount=3;
     Card[] PreGen={ //Массив стандартных карт
-            new Card(1,3,5,0, R.string.headline001,R.string.lore001,R.drawable.card_001_viking),
-            new Card(2,2,4,4, R.string.headline002,R.string.lore002,R.drawable.card_002_vampire),
-            new Card(3,1,3,2, R.string.headline003,R.string.lore003,R.drawable.card_003_bird),
-            new Card(4,2,3,0, R.string.headline004,R.string.lore004,R.drawable.card_004_souleater),
-            new Card(5,3,3,1, R.string.headline005,R.string.lore005,R.drawable.card_005_mandrake),
-            new Card(6,2,2,0, R.string.headline006,R.string.lore006,R.drawable.card_006_instructor),
-            new Card(7,1,4,2, R.string.headline007,R.string.lore007,R.drawable.card_007_ghidorah),
-            new Card(8,0,7,0, R.string.headline008,R.string.lore008,R.drawable.card_008_son),
-            new Card(9,5,1,0, R.string.headline009,R.string.lore009,R.drawable.card_009_hackerman)
+            new Card(1,3,5,CardType.Vegetation, R.string.headline001,R.string.lore001,R.drawable.card_001_viking),
+            new Card(2,2,4,CardType.Abstract, R.string.headline002,R.string.lore002,R.drawable.card_002_vampire),
+            new Card(3,1,3,CardType.Robot, R.string.headline003,R.string.lore003,R.drawable.card_003_bird),
+            new Card(4,2,3,CardType.Vegetation, R.string.headline004,R.string.lore004,R.drawable.card_004_souleater),
+            new Card(5,3,3,CardType.Monster, R.string.headline005,R.string.lore005,R.drawable.card_005_mandrake),
+            new Card(6,2,2,CardType.Vegetation, R.string.headline006,R.string.lore006,R.drawable.card_006_instructor),
+            new Card(7,1,4,CardType.Robot, R.string.headline007,R.string.lore007,R.drawable.card_007_ghidorah),
+            new Card(8,0,7,CardType.Vegetation, R.string.headline008,R.string.lore008,R.drawable.card_008_son),
+            new Card(9,5,1,CardType.Vegetation, R.string.headline009,R.string.lore009,R.drawable.card_009_hackerman)
     };
 
     Card[] PlayerCards = new Card[CardAmount];
@@ -35,21 +35,23 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAGCardAttack = "CardAttack";
     private static final String TAGSetParam   = "CardParam";
 
-
-    String[] subtitles = {"Headline","RedGem","BlueGem","Cost","Description","LoreText","Picture"};//Массив названий частей карт
+    /**
+     * Массив названий частей карт
+     */
+    String[] subtitles = {"Headline","RedGem","BlueGem","Cost","Description","LoreText","Picture"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,    //Hiding status bar
+        // Hiding status bar
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        //TODO  NullPointerException
+        // TODO:  NullPointerException
             getSupportActionBar().hide();   //Hiding title bar
 
-
-        View decorView = getWindow().getDecorView();    //Hiding navigation bar
+        // Hiding navigation bar
+        View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
@@ -103,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
         ID = baseID + subtitles[4];
         toFillText = findViewById(getResources().getIdentifier(ID, "id", getPackageName()));
-        toFillText.setText(getResources().getIdentifier("type"+ PreGen[cardNum].getType(), "string", getPackageName()));
+        toFillText.setText(getResources().getIdentifier(PreGen[cardNum].getType().getResourceName(), "string", getPackageName()));
         Log.i(TAGCardSetter,"Type set");
 
         ID = baseID + subtitles[5];
