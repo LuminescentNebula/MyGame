@@ -3,6 +3,7 @@
     package="com.example.mygame">
 
     <application
+        android:name=".activities.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,13 +11,50 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyGame">
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.LoginActivity"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape"/>
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".activities.Game_Screen"
             android:exported="true"
-            android:screenOrientation="landscape">
+            android:parentActivityName=".activities.Main_Menu"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".activities.Card_Collection"
+            android:exported="true"
+            android:parentActivityName=".activities.Main_Menu"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".activities.Lootboxes"
+            android:exported="true"
+            android:parentActivityName=".activities.Main_Menu"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".activities.Profile"
+            android:exported="true"
+            android:parentActivityName=".activities.Main_Menu"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".activities.Money"
+            android:exported="true"
+            android:parentActivityName=".activities.Main_Menu"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".activities.Main_Menu"
+            android:exported="true"
+            android:screenOrientation="sensorLandscape">
+
+            <!-- Будет запускаться первым -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

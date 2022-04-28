@@ -1,145 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/PlayerCard3"
+        android:id="@+id/Card"
         style="@style/CardStyle"
-        android:visibility="visible"
+        android:layout_marginVertical="4dp"
+        android:layout_marginHorizontal="4dp"
 
         app:layout_constraintDimensionRatio="2:3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/PlayerCard3_Headline"
+        <com.lb.auto_fit_textview.AutoResizeTextView
             style="@style/CardHeadlineText"
+            android:id="@+id/Headline"
+            android:layout_marginTop="0dp"
             android:text="@string/placeholder"
-
-            app:layout_constraintHeight_percent="0.07"
+            android:textStyle="bold"
+            app:layout_constraintHeight_percent="0.099"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/PlayerCard3_Picture"
+            android:id="@+id/Picture"
             style="@style/CardPicture"
             android:src="@drawable/placeholder"
 
+            app:layout_constraintBottom_toTopOf="@+id/Type"
             app:layout_constraintHeight_percent="0.47"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/PlayerCard3_Headline"
             tools:ignore="ContentDescription" />
-
-        <TextView
-            android:id="@+id/PlayerCard3_RedGem"
+        <!--TODO: размере обводки -->
+        <com.example.mygame.magic.MagicTextView
             style="@style/CardGemText"
-            android:background="@drawable/redgem"
+            android:id="@+id/HP"
+            android:background="@drawable/gem_red"
             android:text="@string/placeholder"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHeight_percent="0.23"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.6"
-            app:layout_constraintWidth_percent="0.2" />
-
-        <TextView
-            android:id="@+id/PlayerCard3_BlueGem"
-            style="@style/CardGemText"
-            android:background="@drawable/bluegem"
-            android:text="@string/placeholder"
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.647"
             app:layout_constraintWidth_percent="0.2"
+            app:strokeColor="@color/black"
+            app:strokeJoinStyle="bevel"
+            app:strokeWidth="1dp" />
+
+        <com.example.mygame.magic.MagicTextView
+            style="@style/CardGemText"
+            android:id="@+id/Power"
+            android:background="@drawable/gem_blue"
+            android:text="@string/placeholder"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.23"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.6"/>
+            app:layout_constraintVertical_bias="0.647"
+            app:layout_constraintWidth_percent="0.2"
+            app:strokeColor="@color/black"
+            app:strokeJoinStyle="bevel"
+            app:strokeWidth="1dp" />
 
         <ImageView
-            android:id="@+id/PlayerCard3_Lore"
-            style="@style/CardLore"
+            style="@style/CardFeatures"
+            android:id="@+id/Features"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.33"
+            app:layout_constraintHeight_percent="0.30"
             app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="ContentDescription"/>
-
-        <TextView
-            android:id="@+id/PlayerCard3_Cost"
-            style="@style/CardCost"
-            android:text="@string/placeholder"
-            app:layout_constraintDimensionRatio="H,1:1"
-            app:layout_constraintEnd_toStartOf="@id/PlayerCard3_Description"
-            app:layout_constraintTop_toTopOf="@id/PlayerCard3_Lore"
-            app:layout_constraintWidth_percent="0.19"/>
-
-        <TextView
-            android:id="@+id/PlayerCard3_Description"
-            style="@style/CardDescriptionText"
-            android:text="@string/placeholder"
-
-            app:layout_constraintEnd_toStartOf="@id/PlayerCard3_BlueGem"
-            app:layout_constraintHeight_percent="0.13"
-            app:layout_constraintTop_toTopOf="@id/PlayerCard3_Lore"
-            app:layout_constraintWidth_percent="0.4" />
-
-        <TextView
-            android:id="@+id/PlayerCard3_LoreText"
-            style="@style/CardLoreText"
-            android:text="@string/placeholder"
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.22"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:id="@+id/PlayerCard3_Effect1"
-            style="@style/CardEffect"
-            android:background="@drawable/placeholder"
-
-            app:layout_constraintWidth_percent="0.18"
-            app:layout_constraintHeight_percent="0.12"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription" />
 
-        <ImageView
-            android:id="@+id/PlayerCard3_Effect2"
-            style="@style/CardEffect"
-            android:background="@drawable/placeholder"
+        <com.example.mygame.magic.MagicTextView
+            style="@style/CardGemText"
+            android:id="@+id/Cost"
+            android:background="@drawable/gem_green_but_better"
+            android:includeFontPadding="false"
+            android:paddingTop="1dp"
+            android:text="@string/placeholder"
 
-            app:layout_constraintWidth_percent="0.18"
-            app:layout_constraintHeight_percent="0.12"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/Features"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintStart_toEndOf="@+id/HP"
+            app:layout_constraintTop_toBottomOf="@+id/Picture"
+            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintWidth_percent="0.19"
+
+            app:strokeColor="@color/black"
+            app:strokeJoinStyle="bevel"
+            app:strokeWidth="1dp" />
+
+        <ImageView
+            android:id="@+id/Type"
+            style="@style/CardTypeText"
+            android:src="@drawable/placeholder"
+
+            app:layout_constraintWidth_percent="0.37"
+            app:layout_constraintHeight_percent="0.13"
+            app:layout_constraintBottom_toTopOf="@+id/Features"
+            app:layout_constraintEnd_toStartOf="@+id/Power"
+            app:layout_constraintStart_toEndOf="@+id/Cost" />
+
+        <com.lb.auto_fit_textview.AutoResizeTextView
+            android:id="@+id/FeatureText"
+            style="@style/CardFeatureText"
+            android:text="@string/features008"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.24"
+            app:layout_constraintWidth_percent="0.85"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginHorizontal="5dp"/>
+
+        <com.lb.auto_fit_textview.AutoResizeTextView
+            android:id="@+id/Amount"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="0"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:background="@drawable/amount"
+            android:textAlignment="center"
+            android:gravity="center"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintWidth_percent="0.15"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription" />
+            android:visibility="gone">
 
-        <TextView
-            android:id="@+id/PlayerCard3_Quirk1"
-            style="@style/CardQuirk"
-            android:text="@string/placeholder"
-
-            app:layout_constraintWidth_percent="0.6"
-            app:layout_constraintHeight_percent="0.065"
-            app:layout_constraintStart_toStartOf="@id/PlayerCard3_RedGem"
-            app:layout_constraintEnd_toEndOf="@id/PlayerCard3_BlueGem"
-            app:layout_constraintBottom_toTopOf="@id/PlayerCard3_Lore">
-        </TextView>
-
-        <TextView
-            android:id="@+id/PlayerCard3_Quirk2"
-            style="@style/CardQuirk"
-            android:text="@string/placeholder"
-
-            app:layout_constraintWidth_percent="0.6"
-            app:layout_constraintHeight_percent="0.065"
-            app:layout_constraintStart_toStartOf="@id/PlayerCard3_RedGem"
-            app:layout_constraintEnd_toEndOf="@id/PlayerCard3_BlueGem"
-            app:layout_constraintTop_toBottomOf="@id/PlayerCard3_Picture">
-        </TextView>
+        </com.lb.auto_fit_textview.AutoResizeTextView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

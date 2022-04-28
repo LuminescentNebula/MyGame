@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/MiniCard"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:id="@+id/MiniBackground"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="4dp"
+            android:layout_marginVertical="4dp"
+            android:background="@drawable/minicard"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="94:90"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/MiniPicture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginVertical="8dp"
+                android:src="@drawable/placeholder"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+
+        <com.example.mygame.magic.MagicTextView
+            android:id="@+id/MiniHP"
+            style="@style/CardGemText"
+            android:background="@drawable/gem_red"
+            android:text="@string/placeholder"
+            android:layout_marginStart="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.388"
+            app:layout_constraintStart_toStartOf="@id/MiniBackground"
+            app:layout_constraintWidth_percent="0.212"
+
+            app:strokeColor="@color/black"
+            app:strokeJoinStyle="bevel"
+            app:strokeWidth="1dp" />
+
+        <com.example.mygame.magic.MagicTextView
+            android:id="@+id/MiniPower"
+            style="@style/CardGemText"
+            android:background="@drawable/gem_blue"
+            android:text="@string/placeholder"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/MiniBackground"
+            app:layout_constraintHeight_percent="0.388"
+            app:layout_constraintWidth_percent="0.212"
+
+            app:strokeColor="@color/black"
+            app:strokeJoinStyle="bevel"
+            app:strokeWidth="1dp" />
+
+        <ImageView
+            android:id="@+id/Effect1"
+            style="@style/CardEffect"
+            android:background="@drawable/placeholder"
+
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="8dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintHeight_percent="0.22"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/Effect2"
+            style="@style/CardEffect"
+            android:background="@drawable/placeholder"
+
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="8dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintHeight_percent="0.22"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

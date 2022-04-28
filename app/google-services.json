@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "181891304605",
+    "firebase_url": "https://reapion-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "reapion",
+    "storage_bucket": "reapion.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:181891304605:android:bbd2dc1d1648fe45161874",
+        "android_client_info": {
+          "package_name": "com.example.mygame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "181891304605-phomab0d498abhe9auvsshb7lq5jhjfd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc54WkzCX2zuE0gw0AUtb3adJhGFMN61A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "181891304605-phomab0d498abhe9auvsshb7lq5jhjfd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:181891304605:android:5b84e0da53cb1d4f161874",
+        "android_client_info": {
+          "package_name": "com.google.firebase.quickstart.auth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "181891304605-phomab0d498abhe9auvsshb7lq5jhjfd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc54WkzCX2zuE0gw0AUtb3adJhGFMN61A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "181891304605-phomab0d498abhe9auvsshb7lq5jhjfd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
