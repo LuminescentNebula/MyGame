@@ -3,7 +3,7 @@
     <style name="CardStyle">
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">0dp</item>
-        <item name="android:background">@color/card_background</item>
+        <item name="android:background">@drawable/card_background</item>
     </style>
     <style name="TextStyle">
         <item name="android:textAlignment">center</item>
@@ -23,6 +23,8 @@
         <item name="autoSizeTextType">uniform</item>
         <item name="android:elegantTextHeight">true</item>
         <item name="android:textColor">@color/text_color</item>
+        <item name="android:background">@drawable/background_name</item>
+        <item name="singleLine">true</item>
     </style>
 
     <style name="CardGemText">
@@ -32,29 +34,27 @@
         <item name="android:gravity">center</item>
         <item name="android:autoSizeTextType">uniform</item>
         <item name="android:elegantTextHeight">true</item>
-        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="CardDescriptionText">
+    <style name="CardTypeText">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">0dp</item>
         <item name="android:textAlignment">center</item>
         <item name="android:gravity">center</item>
-        <item name="autoSizeTextType">uniform</item>
         <item name="android:maxLines">1</item>
-        <item name="android:elegantTextHeight">true</item>
         <item name="android:textColor">@color/text_color</item>
     </style>
 
-    <style name="CardLore">
+    <style name="CardFeatures">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
-        <item name="android:background">@drawable/lore</item>
+        <item name="android:background">@drawable/background_lore</item>
         <item name="android:textColor">@color/text_color</item>
     </style>
 
-
-    <style name="CardLoreText">
+    <style name="CardFeatureText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
         <item name="android:textAlignment">center</item>
@@ -62,6 +62,7 @@
         <item name="android:minLines">5</item>
         <item name="android:elegantTextHeight">true</item>
         <item name="android:textColor">@color/text_color</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="CardEffect">
@@ -74,29 +75,17 @@
     <style name="CardPicture">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
-        <item name="android:background">@drawable/card_picture_background</item>
-    </style>
-
-    <style name="CardCost">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">0dp</item>
-        <item name="android:background">@drawable/greengem</item>
-        <item name="android:textColor">@color/text_color</item>
-        <item name="android:textAlignment">center</item>
-        <item name="android:gravity">center</item>
-        <item name="autoSizeTextType">uniform</item>
-        <item name="android:elegantTextHeight">true</item>
+        <item name="android:background">@drawable/background_picture</item>
     </style>
 
     <style name="CardQuirk">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">0dp</item>
-        <item name="android:autoSizeTextType">uniform</item>
         <item name="android:elegantTextHeight">true</item>
-        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="Text_and_Buttons">
+    <style name="TextAndButtons">
         <item name="android:layout_width">100dp</item>
         <item name="android:layout_height">30dp</item>
         <item name="android:textAlignment">center</item>
@@ -110,5 +99,16 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">6sp</item>
+    </style>
+
+    <style name="Avatar">
+        <item name="android:background">@color/Palette1</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="RecyclerView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
     </style>
 </resources>

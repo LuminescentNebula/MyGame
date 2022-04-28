@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFDEEAAD"
+    tools:context=".activities.Main_Menu">
+
+    <!--TODO: Красивая кнопка нужна -->
+    <Button
+        android:id="@+id/Play"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:text="@string/menu_play"
+        android:elegantTextHeight="true"
+        android:autoSizeTextType="uniform"
+        android:onClick="StartGame"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/Settings"
+        android:layout_width="90dp"
+        android:layout_height="0dp"
+        android:src="@drawable/gear"
+        android:onClick="OpenSettings"
+        app:layout_constraintDimensionRatio="2:1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/Profile"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/avatar_001"
+        android:onClick="OpenProfile"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/Money"
+        android:layout_width="90dp"
+        android:layout_height="0dp"
+        android:src="@drawable/gem_red"
+        android:onClick="OpenMoney"
+        app:layout_constraintDimensionRatio="2:1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/Profile" />
+
+    <ImageButton
+        android:id="@+id/Lootboxes"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:onClick="OpenLootboxes"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <ImageButton
+        android:id="@+id/Collection"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:onClick="OpenCollection"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

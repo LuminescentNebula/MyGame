@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">My Game</string>
-
+    <string name="menu_play">Play</string>
     <string name="placeholder" translatable="false"></string>
 
     <string name="headline001">Viking</string>
@@ -10,8 +10,8 @@
     <string name="headline005">Mandrake</string>
     <string name="headline006">Safety Engineer</string>
     <string name="headline007">Ghidorah</string>
-    <string name="headline008">Сын маминой подруги</string>
-    <string name="headline009">Тыжпрограммист</string>
+    <string name="headline008">Chad</string>
+    <string name="headline009">Hackerman</string>
 
     <string name="lore001">For the Odin!</string>
     <string name="lore002">"Еще одно сравнение с комаром и я кого-нибудь укуш… Чёрт!"</string>
@@ -20,7 +20,7 @@
     <string name="lore005" translatable="false">AAAAAAAAAAAAAAAAAAAAAAAAA</string>
     <string name="lore006">Half safety engineer, half coffee</string>
     <string name="lore007">Burn, kill, eat geese</string>
-    <string name="lore008">TODO</string>
+    <string name="lore008">Don\'t be jealous of me</string>
     <string name="lore009">Have you tried turning it off and on again?</string>
 
     <string name="type0">Human</string>
@@ -30,5 +30,22 @@
     <string name="type4">Undead</string>
     <string name="type5">Abstract</string>
 
+    <string name="features001">Через 3 хода сила увеличивается вдвое</string>
+    <string name="features002">Исцеляет себя, когда наносит урон</string>
+    <string name="features003">\"Посмотри какая милая!\"</string>
+    <string name="features004">За каждого убитого врага создает Призрака,который сражается за вас</string>
+    <string name="features005">С шансом 1/6 оглушает врага</string>
+    <string name="features006">+2 к здоровью всем людям</string>
+    <string name="features007">+2 к урону против Людей</string>
+    <string name="features008">Сила на 2 больше силы самого сильного врага на поле</string>
+    <string name="features009">+2 к урону против Роботов</string>
 
+    <string name="quirk02">Своевольность - может атаковать случайного врага</string>
+    <string name="quirk04">Самовлюблённость - +2 к стоимости</string>
+    <string name="quirk06">Апатия - эффекты не работают</string>
+
+    <string name="effect01">Аптечка - вместо хода может один раз исцелить союзника</string>
+    <string name="effect02">Оглушение - не может ходить в следующем ходу</string>
+    <string name="effect03">Магический щит - поглощает 2 урона</string>
+    <string name="long_text" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
 </resources>
