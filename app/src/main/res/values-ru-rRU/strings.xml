@@ -20,8 +20,24 @@
     <string name="lore002">Еще одно сравнение с комаром и я кого-нибудь укуш… Чёрт!</string>
     <string name="lore003">Чик чирик</string>
     <string name="lore004">Отличное дополнение для моей коллекции</string>
-    <string name="lore008">TODO</string>
-    <string name="lore006">Где каска?</string>
+    <string name="lore008">Не завидуй</string>
+    <string name="lore006">Наполовину инженер, наполовину кофе</string>
     <string name="lore009">Пробовали выключить и включить?</string>
     <string name="lore007">Жжёт, убивает, ест гусей</string>
+    <string name="menu_play">Играть</string>
+    <string name="features001">Через 3 хода сила увеличивается вдвое</string>
+    <string name="features002">Исцеляет себя, когда наносит урон</string>
+    <string name="features003">\"Посмотри какая милая!\"</string>
+    <string name="features004">За каждого убитого врага создает Призрака,который сражается за вас</string>
+    <string name="features005">С шансом 1/6 оглушает врага</string>
+    <string name="features007">+2 к урону против Людей</string>
+    <string name="features008">Сила на 2 больше силы самого сильного врага на поле</string>
+    <string name="features009">+2 к урону против Роботов</string>
+    <string name="features006">+2 к здоровью всем людям</string>
+    <string name="quirk06">Апатия - эффекты не работают</string>
+    <string name="quirk04">Самовлюблённость - +2 к стоимости</string>
+    <string name="quirk02">Своевольность - может атаковать случайного врага</string>
+    <string name="effect02">Оглушение - не может ходить в следующем ходу</string>
+    <string name="effect01">"Аптечка - вместо хода может один раз исцелить союзника "</string>
+    <string name="effect03">Магический щит - поглощает 2 урона</string>
 </resources>

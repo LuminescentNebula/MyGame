@@ -10,13 +10,45 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyGame">
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.Game_Screen"
+            android:parentActivityName=".activities.Main_Menu"
             android:exported="true"
-            android:screenOrientation="landscape">
+            android:screenOrientation="sensorLandscape">
+        </activity>
+        <activity
+            android:name=".activities.Card_Collection"
+            android:parentActivityName=".activities.Main_Menu"
+            android:exported="true"
+            android:screenOrientation="sensorLandscape">
+        </activity>
+        <activity
+            android:name=".activities.Lootboxes"
+            android:parentActivityName=".activities.Main_Menu"
+            android:exported="true"
+            android:screenOrientation="sensorLandscape">
+        </activity>
+        <activity
+            android:name=".activities.Profile"
+            android:parentActivityName=".activities.Main_Menu"
+            android:exported="true"
+            android:screenOrientation="sensorLandscape">
+        </activity>
+        <activity
+            android:name=".activities.Money"
+            android:parentActivityName=".activities.Main_Menu"
+            android:exported="true"
+            android:screenOrientation="sensorLandscape">
+        </activity>
+        <activity
+            android:name=".activities.Main_Menu"
+            android:exported="true"
+            android:screenOrientation="sensorLandscape">
+            <!--Будет запускаться первым -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
