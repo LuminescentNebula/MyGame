@@ -23,7 +23,7 @@
     <string name="headline018">Aztec</string>
 
     <string name="lore001">For the Odin!</string>
-    <string name="lore002">"Еще одно сравнение с комаром и я кого-нибудь укуш… Чёрт!"</string>
+    <string name="lore002">One more mosquito comparison and I\'ll bite someone... Damn!</string>
     <string name="lore003">Hoot, hoot</string>
     <string name="lore004">A fine addition to my collection</string>
     <string name="lore005" translatable="false">AAAAAAAAAAAAAAAAAAAAAAAAA</string>
@@ -31,12 +31,12 @@
     <string name="lore007">Burn, kill, eat geese</string>
     <string name="lore008">Don\'t be jealous of me</string>
     <string name="lore009">Have you tried turning it off and on again?</string>
-    <string name="lore010">Рын-дын-дын-дын, я приехал, кожаные ублюдки</string>
+    <string name="lore010">Ryn-dyn-dyn-dyn, I\'ve come, leather bastards</string>
     <string name="lore011">Takes the souls of those who wonder \"Why the crocodile?\"</string>
-    <string name="lore012">TODO</string>
+    <string name="lore012">They are in the trees!</string>
     <string name="lore013">Nobody expected them</string>
-    <string name="lore014">Либо ты идёшь в загробный мир, либо косить траву</string>
-    <string name="lore015">\"Я заправлю свой картридж твоей кровью\"</string>
+    <string name="lore014">Either you go to the afterlife, or mow the grass</string>
+    <string name="lore015">\"I\'ll refill my cartridge with your blood\"</string>
     <string name="lore016" translatable="false">Nevermore</string>
     <string name="lore017">\"What are you?\"</string>
     <string name="lore018">Ехал Тлауицкальпантекутли через реку,\\n Видит Тлауицкальпантекутли в реке Тональтекутли\\n Сунул Тлауицкальпантекутли руку в реку,\\n Тональтекутли за руку Тлауицкальпантекутли-цап</string>
@@ -48,11 +48,11 @@
     <string name="type4">Undead</string>
     <string name="type5">Abstract</string>
 
-    <string name="features001">Через 3 хода сила увеличивается вдвое</string>
-    <string name="features002">Исцеляет себя, когда наносит урон</string>
+    <string name="features001">After 3 turns, the strength is doubled</string>
+    <string name="features002">Heals self when it deals damage</string>
     <string name="features003">\"Look at this cutie!\"</string>
-    <string name="features004">За каждого убитого врага создает Призрака</string>
-    <string name="features005">С шансом 1/6 оглушает врага</string>
+    <string name="features004">Creates a Ghost for each enemy killed</string>
+    <string name="features005">1/6 chance to stun an enemy</string>
     <string name="features006">+2 to health of all Humans</string>
     <string name="features007">+2 to damage against Humans</string>
     <string name="features008">Power is 2 more than power of the strongest Enemy on field</string>

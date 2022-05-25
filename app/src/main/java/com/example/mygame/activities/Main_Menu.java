@@ -105,22 +105,29 @@ public class Main_Menu extends AppCompatActivity {
     }
 
     private void updateUI() {
-        TextView displayName = findViewById(R.id.display_name);
-        displayName.setText(player.getName());
+        DB.collection("Players").document(player.getUID()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                player = task.getResult().toObject(Player.class);
+                player.setMoney(Math.toIntExact((Long)task.getResult().get("money")));
+                TextView displayName = findViewById(R.id.display_name);
+                displayName.setText(player.getName());
 
-        ImageView avatar =  findViewById(R.id.Profile);
-        avatar.setBackgroundResource(getResources().getIdentifier("avatar_" + player.getAvatar(), "drawable", getPackageName()));
+                ImageView avatar =  findViewById(R.id.Profile);
+                avatar.setBackgroundResource(getResources().getIdentifier("avatar_" + player.getAvatar(), "drawable", getPackageName()));
 
-        TextView money = findViewById(R.id.MoneyAmount);
-        money.setText(String.valueOf(player.getMoney()));
+                TextView money = findViewById(R.id.MoneyAmount);
+                money.setText(String.valueOf(player.getMoney()));
 
-        Log.d(TAG, "Player{" +
-                ", Name='" + player.getName() + '\'' +
-                ", Money=" + player.getMoney() +
-                ", Avatar=" + player.getAvatar() +
-                ", AllCards=" + player.getAllCards().toString() +
-                '}');
-        Log.d(TAG,"UI updated");
+                Log.d(TAG, "Player{" +
+                        ", Name='" + player.getName() + '\'' +
+                        ", Money=" + player.getMoney() +
+                        ", Avatar=" + player.getAvatar() +
+                        ", AllCards=" + player.getAllCards().toString() +
+                        '}');
+                Log.d(TAG,"UI updated");
+            }
+        });
     }
 
 
@@ -169,7 +176,7 @@ public class Main_Menu extends AppCompatActivity {
     }
 
     public void OpenProfile(View view) {
-        Intent intent = new Intent();
+        Intent intent = new Intent(Main_Menu.this,Profile.class);
         Gson gson = new Gson();
 
         intent.putExtra("player",gson.toJson(player));
