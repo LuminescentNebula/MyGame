@@ -8,7 +8,6 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -105,6 +104,7 @@ public class Game_Screen extends AppCompatActivity implements OnViewHolderClickL
         enemyFieldAdapter =new FieldAdapter(enemyField,this);
 
         initPlayerRecyclerView();
+        initFieldRecyclerView();
 
         next = findViewById(R.id.Next);
         next.setOnClickListener(v -> Next());
@@ -146,8 +146,8 @@ public class Game_Screen extends AppCompatActivity implements OnViewHolderClickL
     }
 
     public void updatePlayerRecyclerView(int i){
-        playerHandAdapter.notifyItemChanged(i);
-        playerShowHandAdapter.notifyItemChanged(i);
+        playerHandAdapter.notifyItemRemoved(i);
+        playerShowHandAdapter.notifyItemRemoved(i);
     }
 
     public void initFieldRecyclerView(){
@@ -158,10 +158,13 @@ public class Game_Screen extends AppCompatActivity implements OnViewHolderClickL
         EnemyFieldRecyclerView = findViewById(R.id.EnemyField);
         EnemyFieldRecyclerView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false));
         EnemyFieldRecyclerView.setAdapter(enemyFieldAdapter);
-
+        Log.d(TAG,new Gson().toJson(playerField));
     }
 
-
+    private void updateFieldRecyclerView() {
+        playerFieldAdapter.notifyDataSetChanged();
+        Log.d(TAG,new Gson().toJson(playerField));
+    }
 //    public void initEnemyRecyclerView(){
 //        EnemyAdapter adapter;
 //        RecyclerView recyclerView = findViewById(R.id.EnemyCardLayout);
@@ -206,23 +209,27 @@ public class Game_Screen extends AppCompatActivity implements OnViewHolderClickL
     @Override
     public void onClickAtItem(int i) {
         //TODO: add to field and sent
+        Log.d(TAG,"PlayerField add 0"+playerField.size());
         if (player.getUID().equals(game.getPlayer())){
             if(game.addFieldPlayerCards(playerSet.get(i))){
-                playerField.add(playerSet.get(i));
+                Log.d(TAG,"PlayerField add 1"+playerField.size());
                 playerSet.remove(i);
                 updatePlayerRecyclerView(i);
+                updateFieldRecyclerView();
             }
         } else {
             if (game.addFieldEnemyCards(playerSet.get(i))) {
-                playerField.add(playerSet.get(i));
+                Log.d(TAG,"PlayerField add 2"+playerField.size());
                 playerSet.remove(i);
                 updatePlayerRecyclerView(i);
+                updateFieldRecyclerView();
             }
         }
-        initFieldRecyclerView();
-        Toast.makeText(this,i+" clicked",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this,i+" clicked",Toast.LENGTH_SHORT).show();
         Log.i(TAG,i+"clicked");
     }
+
+
 
 //    @Override
 //    public void onPointerCaptureChanged(boolean hasCapture) {
