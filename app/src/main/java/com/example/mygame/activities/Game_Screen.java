@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mygame.DBs.Enemy;
+import com.example.mygame.DBs.FireStoreDBClient;
 import com.example.mygame.DBs.Game;
 import com.example.mygame.DBs.Player;
 import com.example.mygame.R;
@@ -35,7 +36,9 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 
-public class Game_Screen extends AppCompatActivity implements OnViewHolderClickListener {
+public class Game_Screen extends AppCompatActivity implements
+        OnViewHolderClickListener,
+        FieldAdapter.OnFieldCardListener{
 
     final static int  CardAmount=4;
 
@@ -221,6 +224,7 @@ public class Game_Screen extends AppCompatActivity implements OnViewHolderClickL
             if (game.addFieldEnemyCards(playerSet.get(i))) {
                 Log.d(TAG,"PlayerField add 2"+playerField.size());
                 playerSet.remove(i);
+                FireStoreDBClient.updateFields(game);
                 updatePlayerRecyclerView(i);
                 updateFieldRecyclerView();
             }
@@ -229,6 +233,11 @@ public class Game_Screen extends AppCompatActivity implements OnViewHolderClickL
         Log.i(TAG,i+"clicked");
     }
 
+    @Override
+    public void OnFieldCardClick(int position) {
+       // Toast.makeText(this,position ,Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "OnFieldCardClick: "+position);
+    }
 
 
 //    @Override

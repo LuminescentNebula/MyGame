@@ -12,7 +12,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -155,6 +157,32 @@ public class FireStoreDBClient {
                 Log.d(TAG, "Sets update FAILED");
             }
         });
+    }
+
+    public static void updateFields(Game game){
+        FirebaseFirestore DB = FirebaseFirestore.getInstance();
+        DB.collection("Games").
+                document(game.getId()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.getResult().toObject(Game.class).getEnemy().equals(user.getUid())) {
+                    DB.collection("Games").document(game.getId()).update("fieldEnemyCards",game.getFieldEnemyCards()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Log.d(TAG,"Games updated "+new Gson().toJson(game));
+                        }
+                    });
+                } else {
+                    DB.collection("Games").document(game.getId()).update("fieldPlayerCards",game.getFieldPlayerCards()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Log.d(TAG,"Games updated "+new Gson().toJson(game));
+                        }
+                    });
+                }
+            }
+        });
+
     }
 }
 

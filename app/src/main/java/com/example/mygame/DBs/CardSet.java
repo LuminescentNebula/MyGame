@@ -75,7 +75,7 @@ public class CardSet  {
         String[] keys =TheSet.keySet().toArray(new String[0]);
         for (String i:keys) {
             for (Card a:Card.values()) {
-                if(a.getId()==Long.parseLong(i)){
+                if(a.getId()==Long.parseLong(i)+1){
                     for (int j=0;j<TheSet.get(i);j++){
                         returnable.add(a);
                     }
