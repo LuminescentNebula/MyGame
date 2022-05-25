@@ -1,28 +1,18 @@
 package com.example.mygame.DBs;
 
-import androidx.room.Entity;
-import androidx.room.Ignore;
-import androidx.room.PrimaryKey;
-import androidx.room.TypeConverters;
-
+import com.example.mygame.card.Card;
 import com.google.firebase.firestore.Exclude;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-@Entity
-public class CardSet implements Serializable {
-    @PrimaryKey @Exclude
-    private int id;
-
+public class CardSet  {
     private String Name="";             //Наименование колоды
     private int CurrentSize = 0;        //Текущее количество карт в колоде
     private boolean Ready = false;
-    @TypeConverters({HashMapConverter.class})
     HashMap<String,Integer> TheSet = new HashMap<>();
-    @Ignore @Exclude
-    final int MaxSize = 10;
+    @Exclude
+    final  int MaxSize = 10;
 
     public CardSet(String name,HashMap<String,Integer> set) {
         this.Name=name;
@@ -41,17 +31,17 @@ public class CardSet implements Serializable {
         this.TheSet=MapSet;
     }
 
-    public boolean add(int Card) {
+    public boolean add(int n) {
         if (CurrentSize < MaxSize) {
-            if (TheSet.containsKey(String.valueOf(Card))) {
-                TheSet.put(String.valueOf(Card), TheSet.get(Card) + 1);
+            if (TheSet.containsKey(String.valueOf(n))) {
+                TheSet.put(String.valueOf(n), TheSet.get(String.valueOf(n)) + 1);
             } else {
-                TheSet.put(String.valueOf(Card), 1);
+                TheSet.put(String.valueOf(n), 1);
             }
+            CurrentSize++;
             if (CurrentSize == MaxSize) {
                 Ready = true;
             }
-            CurrentSize++;
             return true;
         } else {
             return false;
@@ -78,36 +68,27 @@ public class CardSet implements Serializable {
 //            return false;
 //        }
 //    }
+    @Exclude
+    public ArrayList<Card> getList() {
+        //Для каждого ключа создаётся n объектов Card
+        ArrayList<Card> returnable = new ArrayList<>();
+        String[] keys =TheSet.keySet().toArray(new String[0]);
+        for (String i:keys) {
+            for (Card a:Card.values()) {
+                if(a.getId()==Long.parseLong(i)){
+                    for (int j=0;j<TheSet.get(i);j++){
+                        returnable.add(a);
+                    }
+                }
+            }
+        }
+        return returnable;
+    }
 
-//    public boolean checkAllCards() {
-//        //TODO
-//        if (true) {
-//            return true;
-//        } else{
-//            return  false;
-//        }
-//    }
-
-//    public List<Card> get() {
-//        //Для каждого ключа создаётся n объектов Card
-//        List<Card> returnable = null;
-//        String[] keys =(String[]) TheSet.keySet().toArray();
-//        for (String i:keys) {
-//            for (Card a:Card.values()) {
-//                if(a.getId()==Long.parseLong(i)){
-//                    for (int j=0;j<TheSet.get(i);j++){
-//                        returnable.add(a);
-//                    }
-//                }
-//            }
-//        }
-//        return returnable;
-//    }
-
+    public CardSet(){}
     public void setName(String name) {
         Name = name;
     }
-    public CardSet(){}
     public String getName() {
         return Name;
     }
@@ -132,14 +113,7 @@ public class CardSet implements Serializable {
         return list;
     }
 
-    @Exclude
-    public int getId() {
-        return id;
-    }
-    @Exclude
-    public void setId(int id) {
-        this.id = id;
-    }
+
     public void setCurrentSize(int currentSize) {
         CurrentSize = currentSize;
     }

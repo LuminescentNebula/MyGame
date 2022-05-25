@@ -181,7 +181,7 @@ public class LoginActivity extends AppCompatActivity {
             String[] array = getResources().getStringArray(R.array.player_names);
             String randomStr = array[new Random().nextInt(array.length)];
 
-            FireStoreDBClient.updateProfileName(user, randomStr);
+            FireStoreDBClient.updateProfileName(randomStr);
             FireStoreDBClient.createPlayerDocument(user);
         }
     }

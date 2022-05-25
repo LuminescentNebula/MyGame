@@ -16,8 +16,8 @@ import me.grantland.widget.AutofitTextView;
 
 public class SetAdapter extends RecyclerView.Adapter<SetAdapter.TextRow> {
     private final String TAG = "SetAdapter";
-    private ArrayList<Integer> set;
-    public SetAdapter(ArrayList<Integer> set) {
+    private ArrayList<Card> set;
+    public SetAdapter(ArrayList<Card> set) {
         this.set = set;
     }
 
@@ -30,7 +30,7 @@ public class SetAdapter extends RecyclerView.Adapter<SetAdapter.TextRow> {
 
     @Override
     public void onBindViewHolder(@NonNull SetAdapter.TextRow holder, int position) {
-        holder.textView.setText(Card.values()[set.get(position)].getHeadline());
+        holder.textView.setText(set.get(position).getHeadline());
     }
 
     @Override

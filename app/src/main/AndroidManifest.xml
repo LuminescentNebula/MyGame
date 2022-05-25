@@ -14,35 +14,40 @@
             android:name=".activities.LoginActivity"
             android:exported="false"
             android:screenOrientation="sensorLandscape"/>
-        <activity
-            android:name=".activities.SettingsActivity"
-            android:exported="false"
-            android:screenOrientation="sensorLandscape" />
+<!--        <activity-->
+<!--            android:name=".activities.SettingsActivity"-->
+<!--            android:exported="false"-->
+<!--            android:screenOrientation="sensorLandscape" />-->
         <activity
             android:name=".activities.Game_Screen"
             android:exported="true"
-            android:parentActivityName=".activities.Main_Menu"
+            android:parentActivityName=".activities.Find_Game"
             android:screenOrientation="sensorLandscape" />
         <activity
             android:name=".activities.Card_Collection"
             android:exported="true"
             android:parentActivityName=".activities.Main_Menu"
             android:screenOrientation="sensorLandscape" />
-        <activity
-            android:name=".activities.Lootboxes"
-            android:exported="true"
-            android:parentActivityName=".activities.Main_Menu"
-            android:screenOrientation="sensorLandscape" />
+<!--        <activity-->
+<!--            android:name=".activities.Lootboxes"-->
+<!--            android:exported="true"-->
+<!--            android:parentActivityName=".activities.Main_Menu"-->
+<!--            android:screenOrientation="sensorLandscape" />-->
         <activity
             android:name=".activities.Profile"
             android:exported="true"
             android:parentActivityName=".activities.Main_Menu"
             android:screenOrientation="sensorLandscape" />
         <activity
-            android:name=".activities.Money"
+            android:name=".activities.Find_Game"
             android:exported="true"
             android:parentActivityName=".activities.Main_Menu"
             android:screenOrientation="sensorLandscape" />
+<!--        <activity-->
+<!--            android:name=".activities.Money"-->
+<!--            android:exported="true"-->
+<!--            android:parentActivityName=".activities.Main_Menu"-->
+<!--            android:screenOrientation="sensorLandscape" />-->
         <activity
             android:name=".activities.Main_Menu"
             android:exported="true"

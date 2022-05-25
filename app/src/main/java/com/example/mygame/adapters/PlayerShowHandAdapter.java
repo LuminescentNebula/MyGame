@@ -39,28 +39,27 @@ public class PlayerShowHandAdapter extends BaseAdapter<Card> {
     @Override
     public void onBindViewHolder(@NonNull ClickableViewHolder holder, int position) {
         final Card item = getItem(position);
-        ConstraintLayout Card        =  (ConstraintLayout)holder.getViewById(R.id.CutCard);
-        AutoResizeTextView Headline    =  (AutoResizeTextView)holder.getViewById(R.id.Headline);
-        ImageView Picture     =  (ImageView)holder.getViewById(R.id.Picture);
-        TextView HP          =  (TextView)holder.getViewById(R.id.HP);
+        ConstraintLayout    Card        =  (ConstraintLayout)holder.getViewById(R.id.Card);
+        AutoResizeTextView  Headline    =  (AutoResizeTextView)holder.getViewById(R.id.Headline);
+        ImageView           Picture     =  (ImageView)holder.getViewById(R.id.Picture);
+        TextView            HP          =  (TextView)holder.getViewById(R.id.HP);
         TextView            Power       =  (TextView)holder.getViewById(R.id.Power);
         TextView            Cost        =  (TextView)holder.getViewById(R.id.Cost);
-        AutoResizeTextView  Type        =  (AutoResizeTextView)holder.getViewById(R.id.Type);
+        ImageView           Type        =  (ImageView)holder.getViewById(R.id.Type);
         AutoResizeTextView  FeatureText =  (AutoResizeTextView)holder.getViewById(R.id.FeatureText);
         //ImageView           Effect1     =  (ImageView)holder.getViewById(R.id.Effect1);
         //ImageView           Effect2     =  (ImageView)holder.getViewById(R.id.Effect2);
 
-        Headline.setText         (item.                   getHeadline());
-        Picture. setImageResource(item.                   getPicture());
-        HP.      setText         (String.valueOf(item.    getHp()));
-        Power.   setText         (String.valueOf(item.    getPower()));
-        Cost.    setText         (String.valueOf(item.    getCost()));
-        Type.    setText         (item.                   getType());
-        FeatureText.setText      (item.                   getFeature());
+        Headline.setText         (item.                   getHeadline() );
+        Picture. setImageResource(item.                   getPicture()  );
+        HP.      setText         (String.valueOf(item.    getHp())      );
+        Power.   setText         (String.valueOf(item.    getPower())   );
+        Cost.    setText         (String.valueOf(item.    getCost())    );
+        Type.    setImageResource(item.                   getTypeSym()  );
+        FeatureText.setText      (item.                   getFeature()  );
         if (item.isGold()) {
             Card.setBackgroundResource(R.drawable.card_background_gold);
         }
         Log.i(TAGHandSetter,"Card "+position+ "set");
-
     }
 }

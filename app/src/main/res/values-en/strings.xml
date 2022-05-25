@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">My Game</string>
+    <string name="app_name">Wizard Tournament</string>
     <string name="type0">Human</string>
     <string name="headline001">Viking</string>
     <string name="headline002">Vampire</string>
@@ -84,4 +84,7 @@
     <string name="features017">TODO</string>
     <string name="features018">TODO</string>
     <string name="features012">TODO</string>
+    <string name="profile_changes">Changes will be applied after restart</string>
+    <string name="to_be_added">To be added soon</string>
+    <string name="choose">Choose the card set</string>
 </resources>

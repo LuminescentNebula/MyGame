@@ -2,8 +2,6 @@ package com.example.mygame.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -19,12 +17,12 @@ import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mygame.DBs.CardSet;
+import com.example.mygame.DBs.FireStoreDBClient;
+import com.example.mygame.DBs.Player;
 import com.example.mygame.R;
 import com.example.mygame.adapters.CollectionAdapter;
-import com.example.mygame.adapters.SetAdapter;
 import com.example.mygame.card.Card;
-import com.example.mygame.DBs.CardSet;
-import com.example.mygame.DBs.Player;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.gson.Gson;
@@ -40,7 +38,9 @@ public class Card_Collection extends AppCompatActivity implements OnViewHolderCl
     private Player player;
     private RecyclerView recyclerView;
     private CardSet cardSet;
-    private SetAdapter sAdapter;
+    //private SetAdapter sAdapter;
+    //private RecyclerView setRecyclerView;
+    //private ArrayList<Card> setRecyclerList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,9 +60,10 @@ public class Card_Collection extends AppCompatActivity implements OnViewHolderCl
         Intent intent = getIntent();
         Gson gson = new Gson();
         player = gson.fromJson(intent.getStringExtra("player"), Player.class);
-        Log.d(TAG,"Allcards :"+player.getAllCards().toString());
+        Log.d(TAG,"Player :"+ new Gson().toJson(player));
 
         recyclerView = findViewById(R.id.CollectionRecyclerView);
+        //setRecyclerView = findViewById(R.id.SetRecyclerView);
 
         ConstraintLayout pop = findViewById(R.id.PopUp);
         MaterialShapeDrawable shapeDrawable = new MaterialShapeDrawable();
@@ -110,32 +111,24 @@ public class Card_Collection extends AppCompatActivity implements OnViewHolderCl
 
     }
     private void createSet() {
-        //TODO
         initRecyclerView(player.getAllCards());
         cardSet = new CardSet();
         ConstraintLayout popUp = findViewById(R.id.PopUpName);
         popUp.setVisibility(View.VISIBLE);
         TextInputEditText field = findViewById(R.id.NameInput);
-        field.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
-            @Override
-            public void afterTextChanged(Editable s) {
-                String name = field.getText().toString().trim();
-                if (name.length()>25){
-                    name = name.substring(0,24);
-                }
-                cardSet.setName(name);
-                popUp.setVisibility(View.GONE);
-                ConstraintLayout Filler = findViewById(R.id.SetFiller);
-                Filler.setVisibility(View.VISIBLE);
-                initSetRecyclerView();
+        ImageButton pushName = findViewById(R.id.PushName);
+        pushName.setOnClickListener(v -> {
+            String name = field.getText().toString().trim();
+            if (name.length()>25){
+                name = name.substring(0,24);
             }
+            cardSet.setName(name);
+            popUp.setVisibility(View.GONE);
+            ConstraintLayout Filler = findViewById(R.id.SetFiller);
+            Filler.setVisibility(View.VISIBLE);
+            //setRecyclerList = cardSet.getList();
+            //initSetRecyclerView();
         });
-        //set.put()
-
     }
 
     private void updateSetsButtons(){
@@ -143,12 +136,123 @@ public class Card_Collection extends AppCompatActivity implements OnViewHolderCl
             ImageButton s = findViewById(getID(i));
             s.setVisibility(View.VISIBLE);
             int finalI = i;
-            s.setOnClickListener(v-> initRecyclerView(player.getSets().get(finalI).getTheSet()));
+            s.setOnClickListener(v-> initRecyclerView(player.getSets().get(finalI-1).getTheSet()));
+            //s.setOnLongClickListener(v -> player.d);
         }
         for (int i =player.getSetsAmount()+1;i<=9;i++){
             ImageButton s = findViewById(getID(i));
             s.setVisibility(View.GONE);
         }
+        if (player.getSetsAmount()==9){
+            ImageButton plus = findViewById(R.id.Plus);
+            plus.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void onClickAtItem(int i) {
+        ConstraintLayout setFiller = findViewById(R.id.SetFiller);
+        if (setFiller.getVisibility() == View.GONE) {
+            ConstraintLayout pop_main = findViewById(R.id.PopUpMain);
+            TextView description = findViewById(R.id.Description);
+            ConstraintLayout Crd = findViewById(R.id.BiggerCard);
+
+            if (pop_main.getVisibility() == View.GONE) {
+                pop_main.setVisibility(View.VISIBLE);
+            } else {
+                pop_main.setVisibility(View.GONE);
+            }
+
+            AutoResizeTextView Headline = (AutoResizeTextView) Crd.findViewById(R.id.Headline);
+            ImageView Picture = (ImageView) Crd.findViewById(R.id.Picture);
+            TextView HP = (TextView) Crd.findViewById(R.id.HP);
+            TextView Power = (TextView) Crd.findViewById(R.id.Power);
+            TextView Cost = (TextView) Crd.findViewById(R.id.Cost);
+            ImageView Type = (ImageView) Crd.findViewById(R.id.Type);
+            AutoResizeTextView FeatureText = (AutoResizeTextView) Crd.findViewById(R.id.FeatureText);
+
+            Headline.setText(Card.values()[i].getHeadline());
+            Picture.setImageResource(Card.values()[i].getPicture());
+            HP.setText(String.valueOf(Card.values()[i].getHp()));
+            Power.setText(String.valueOf(Card.values()[i].getPower()));
+            Cost.setText(String.valueOf(Card.values()[i].getCost()));
+            Type.setImageResource(Card.values()[i].getTypeSym());
+            FeatureText.setText(Card.values()[i].getFeature());
+
+            description.setText(Card.values()[i].getLore());
+            Log.d(TAG, "Pop Up Visibility");
+        } else {
+            AutoResizeTextView amount = findViewById(R.id.SetAmount);
+            View v = recyclerView.getLayoutManager().findViewByPosition(i);
+            Log.d(TAG,"Position = "+i);
+            Log.d(TAG,"cardSet = "+new Gson().toJson(cardSet));
+            if (cardSet.getTheSet().containsKey(String.valueOf(i))) {
+                if (player.getAllCards().containsKey(String.valueOf(i))) {
+                    if (cardSet.getTheSet().get(String.valueOf(i)) < player.getAllCards().get(String.valueOf(i))) {
+                        cardSet.add(i);
+                        v.startAnimation(AnimationUtils.loadAnimation(this, R.anim.pop));
+                        amount = findViewById(R.id.SetAmount);
+                        amount.setText(String.valueOf(cardSet.getCurrentSize()) +
+                                "/" +
+                                String.valueOf(cardSet.getMaxSize()));
+                        //updateSetRecyclerView();
+                    } else {
+                        v.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake));
+                    }
+                } else {
+                    v.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake));
+                }
+            } else {
+                if (player.getAllCards().containsKey(String.valueOf(i))) {
+                    if (player.getAllCards().get(String.valueOf(i))!=0){
+                        cardSet.add(i);
+                        v.startAnimation(AnimationUtils.loadAnimation(this, R.anim.pop));
+                        amount.setText(cardSet.getCurrentSize() + "/" + cardSet.getMaxSize());
+                        //updateSetRecyclerView();
+                    } else {
+                        v.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake));
+                    }
+                } else {
+                    v.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake));
+                }
+            }
+            if (cardSet.getReady()) {
+                //TODO Music сигнал завершения
+                player.addSet(cardSet);
+                Log.d(TAG,new Gson().toJson(player));
+                FireStoreDBClient.updateSets(player.getSets());
+                setFiller.setVisibility(View.GONE);
+                amount.setText(0 + "/" + cardSet.getMaxSize());
+                updateSetsButtons();
+            }
+        }
+    }
+
+//    private void initSetRecyclerView() {
+//        setRecyclerView.removeAllViews();
+//        sAdapter = new SetAdapter(setRecyclerList);
+//        setRecyclerView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,false));
+//        setRecyclerView.setAdapter(sAdapter);
+//    }
+//    private void updateSetRecyclerView(){
+//        setRecyclerList = cardSet.getList();
+//        setRecyclerView.getAdapter().notifyItemChanged(cardSet.getCurrentSize()-1);
+//    }
+
+
+    private int getID(int i){
+        switch (i){
+            case 1: return R.id.set1;
+            case 2: return R.id.set2;
+            case 3: return R.id.set3;
+            case 4: return R.id.set4;
+            case 5: return R.id.set5;
+            case 6: return R.id.set6;
+            case 7: return R.id.set7;
+            case 8: return R.id.set8;
+            case 9: return R.id.set9;
+        }
+        return 0;
     }
 
     @Override
@@ -181,98 +285,5 @@ public class Card_Collection extends AppCompatActivity implements OnViewHolderCl
         super.onRestart();
         Log.d(TAG,"LifeCycle_"+"onRestart");
     }
-
-    @Override
-    public void onClickAtItem(int i) {
-        ConstraintLayout setFiller = findViewById(R.id.SetFiller);
-        if (setFiller.getVisibility()==View.GONE) {
-            ConstraintLayout pop_main = findViewById(R.id.PopUpMain);
-            TextView description = findViewById(R.id.Description);
-            ConstraintLayout Crd = findViewById(R.id.BiggerCard);
-
-            if (pop_main.getVisibility() == View.GONE) {
-                pop_main.setVisibility(View.VISIBLE);
-            } else {
-                pop_main.setVisibility(View.GONE);
-            }
-
-            AutoResizeTextView Headline = (AutoResizeTextView) Crd.findViewById(R.id.Headline);
-            ImageView Picture = (ImageView) Crd.findViewById(R.id.Picture);
-            TextView HP = (TextView) Crd.findViewById(R.id.HP);
-            TextView Power = (TextView) Crd.findViewById(R.id.Power);
-            TextView Cost = (TextView) Crd.findViewById(R.id.Cost);
-            ImageView Type = (ImageView) Crd.findViewById(R.id.Type);
-            AutoResizeTextView FeatureText = (AutoResizeTextView) Crd.findViewById(R.id.FeatureText);
-
-            Headline.setText(Card.values()[i].getHeadline());
-            Picture.setImageResource(Card.values()[i].getPicture());
-            HP.setText(String.valueOf(Card.values()[i].getHp()));
-            Power.setText(String.valueOf(Card.values()[i].getPower()));
-            Cost.setText(String.valueOf(Card.values()[i].getCost()));
-            Type.setImageResource(Card.values()[i].getTypeSym());
-            FeatureText.setText(Card.values()[i].getFeature());
-
-            description.setText(Card.values()[i].getLore());
-            Log.d(TAG, "Pop Up Visibility");
-        } else {
-            View v = recyclerView.focusSearch(i);
-            if (cardSet.add(i)) {
-                v.startAnimation(AnimationUtils.loadAnimation(this, R.anim.pop));
-                AutoResizeTextView amount = findViewById(R.id.SetAmount);
-                amount.setText(String.valueOf(cardSet.getCurrentSize()) +
-                        "/"+
-                        String.valueOf(cardSet.getMaxSize()));
-                updateSetRecyclerViewItem();
-                if (cardSet.getReady()){
-                    //TODO Music сигнал завершения
-                    player.addSet(cardSet);
-                    setFiller.setVisibility(View.GONE);
-                    amount.setText(0 +"/"+cardSet.getMaxSize());
-                    updateSetsButtons();
-                }
-            } else {
-                v.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake));
-            }
-        }
-    }
-
-    private void initSetRecyclerView() {
-        RecyclerView setRecyclerView = findViewById(R.id.SetRecyclerView);
-        sAdapter = new SetAdapter(cardSet.getTheSetList());
-        setRecyclerView.setAdapter(sAdapter);
-    }
-    private void  updateSetRecyclerViewItem() {
-        sAdapter.notifyItemRangeInserted(cardSet.getCurrentSize()-1, 1);
-    }
-
-    private int getID(int i){
-        switch (i){
-            case 1: return R.id.set1;
-            case 2: return R.id.set2;
-            case 3: return R.id.set3;
-            case 4: return R.id.set4;
-            case 5: return R.id.set5;
-            case 6: return R.id.set6;
-            case 7: return R.id.set7;
-            case 8: return R.id.set8;
-            case 9: return R.id.set9;
-        }
-        return 0;
-    }
-    private int getSRC(int i){
-        switch (i){
-            case 1: return R.drawable.ic_baseline_filter_1_24;
-            case 2: return R.drawable.ic_baseline_filter_2_24;
-            case 3: return R.drawable.ic_baseline_filter_3_24;
-            case 4: return R.drawable.ic_baseline_filter_4_24;
-            case 5: return R.drawable.ic_baseline_filter_5_24;
-            case 6: return R.drawable.ic_baseline_filter_6_24;
-            case 7: return R.drawable.ic_baseline_filter_7_24;
-            case 8: return R.drawable.ic_baseline_filter_8_24;
-            case 9: return R.drawable.ic_baseline_filter_9_24;
-        }
-        return 0;
-    }
-
 
 }

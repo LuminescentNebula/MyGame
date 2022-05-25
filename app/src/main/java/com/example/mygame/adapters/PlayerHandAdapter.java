@@ -1,67 +1,74 @@
 package com.example.mygame.adapters;
 
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mygame.R;
 import com.example.mygame.card.Card;
 import com.lb.auto_fit_textview.AutoResizeTextView;
-import com.rasi.clickableadapter.BaseAdapter;
-import com.rasi.clickableadapter.OnViewHolderClickListener;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.ArrayList;
 
-public class PlayerHandAdapter extends BaseAdapter<Card> {
-    private static final String TAGHandSetter = "PlayerHandSetter";
-    public PlayerHandAdapter(@NonNull List Gen, @Nullable OnViewHolderClickListener itemClickListener) {
-        super(Gen, itemClickListener);
+public class PlayerHandAdapter extends RecyclerView.Adapter<PlayerHandAdapter.Crd> {
+    private static final String TAGHandSetter = "PlayerHandAdapter";
+    ArrayList<Card> Gen = new ArrayList<>();
+    public PlayerHandAdapter(ArrayList<Card> Gen) {
+        this.Gen = Gen;
+    }
+
+    @NonNull
+    @Override
+    public PlayerHandAdapter.Crd onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cut_card,parent,false);
+        return new Crd(view);
     }
 
     @Override
-    protected int getItemView() {
-        return R.layout.cut_card;
-    }
-
-    @Override
-    protected int[] getResIdOfInflatedViews() {
-        return new int[]{
-                R.id.CutCard, R.id.Headline, R.id.Picture, R.id.HP,
-                R.id.Power, R.id.Cost, R.id.Type //R.id.FeatureText,
-                //R.id.Effect1, //R.id.Effect2
-        } ;
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull ClickableViewHolder holder, int position) {
-        final Card item = getItem(position);
-        ConstraintLayout    Card        =  (ConstraintLayout)holder.getViewById(R.id.CutCard);
-        AutoResizeTextView  Headline    =  (AutoResizeTextView)holder.getViewById(R.id.Headline);
-        ImageView           Picture     =  (ImageView)holder.getViewById(R.id.Picture);
-        TextView            HP          =  (TextView)holder.getViewById(R.id.HP);
-        TextView            Power       =  (TextView)holder.getViewById(R.id.Power);
-        TextView            Cost        =  (TextView)holder.getViewById(R.id.Cost);
-        ImageView           Type        =  (ImageView)holder.getViewById(R.id.Type);
-        //AutoResizeTextView  FeatureText =  (AutoResizeTextView)holder.getViewById(R.id.FeatureText);
-        //ImageView           Effect1     =  (ImageView)holder.getViewById(R.id.Effect1);
-        //ImageView           Effect2     =  (ImageView)holder.getViewById(R.id.Effect2);
-
-        Headline.setText         (item.                   getHeadline());
-        Picture. setImageResource(item.                   getPicture());
-        HP.      setText         (String.valueOf(item.    getHp()));
-        Power.   setText         (String.valueOf(item.    getPower()));
-        Cost.    setText         (String.valueOf(item.    getCost()));
-        Type.    setImageResource (item.                   getTypeSym());
-        //FeatureText.setText      (item.                   getFeature());
-        if (item.isGold()) {
-            Card.setBackgroundResource(R.drawable.card_background_gold);
+    public void onBindViewHolder(@NonNull Crd holder, int position) {
+        holder.Headline.setText         (Gen.get(position).                 getHeadline());
+        holder.Picture. setImageResource(Gen.get(position).                 getPicture());
+        holder.HP.      setText         (String.valueOf(Gen.get(position).  getHp()));
+        holder.Power.   setText         (String.valueOf(Gen.get(position).  getPower()));
+        holder.Cost.    setText         (String.valueOf(Gen.get(position).  getCost()));
+        holder.Type.    setImageResource(Gen.get(position).                 getTypeSym());
+        if (Gen.get(position).isGold()) {
+            holder.Card.setBackgroundResource(R.drawable.card_background_gold);
         }
-        Log.i(TAGHandSetter,"Card "+position+ "set");
-
     }
+
+    @Override
+    public int getItemCount() {
+        return Gen.size();
+    }
+
+    class Crd extends RecyclerView.ViewHolder {
+        ConstraintLayout    Card;
+        AutoResizeTextView  Headline;
+        ImageView           Picture;
+        TextView            HP;
+        TextView            Power;
+        TextView            Cost;
+        ImageView           Type;
+
+        public Crd(@NonNull View itemView) {
+            super(itemView);
+            Card    = itemView.findViewById(R.id.CutCard);
+            Headline= itemView.findViewById(R.id.Headline);
+            Picture = itemView.findViewById(R.id.Picture);
+            HP      = itemView.findViewById(R.id.HP);
+            Power   = itemView.findViewById(R.id.Power);
+            Cost    = itemView.findViewById(R.id.Cost);
+            Type    = itemView.findViewById(R.id.Type);
+        }
+    }
+
+
+
 }

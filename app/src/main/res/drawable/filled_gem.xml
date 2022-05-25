@@ -1,0 +1,57 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="27dp"
+    android:height="27dp"
+    android:viewportWidth="27"
+    android:viewportHeight="27">
+    <path
+        android:fillColor="#FF2DCF29"
+        android:pathData="M20.62 12.02L13.3 1v8.05l7.3 2.97Z"/>
+    <path
+        android:fillColor="#FF2DCF29"
+        android:pathData="M13.3 1L6 12.02l7.3-2.97V1Z"/>
+    <path
+        android:fillColor="#FF2DCF29"
+        android:pathData="M6 12.02l-5 12.5 6.35-4.03L6 12.02Z"/>
+    <path
+        android:fillColor="#FF2DCF29"
+        android:pathData="M1 24.52L13.3 26l-5.95-5.5L1 24.51Z"/>
+    <path
+        android:fillColor="#FF2DCF29"
+        android:pathData="M13.3 26L26 24.52l-6.73-4.03L13.3 26Z"/>
+    <path
+        android:fillColor="#FF2DCF29"
+        android:pathData="M26 24.52l-5.38-12.5-1.35 8.47L26 24.52Z"/>
+    <path
+        android:fillColor="#FF2DCF29"
+        android:pathData="M13.3 9.05l-3.65 5.3h7.31l-3.65-5.3Z"/>
+    <path
+        android:fillColor="#FF2DCF29"
+        android:pathData="M13.3 21.13l5.97-0.64-2.3-6.14-1.84 3.39-1.82 3.39Z"/>
+    <path
+        android:fillColor="#FF2DCF29"
+        android:pathData="M7.35 20.5l5.96 0.63-3.66-6.78-2.3 6.14Z"/>
+    <path
+        android:fillColor="#FF78FF75"
+        android:pathData="M9.65 14.35l3.66 6.78 1.82-3.4 1.83-3.38h-7.3Z"/>
+    <path
+        android:fillColor="#FF78FF75"
+        android:pathData="M20.62 12.02L13.3 9.05l3.65 5.3 3.66-2.33Z"/>
+    <path
+        android:fillColor="#FF78FF75"
+        android:pathData="M19.27 20.5l1.35-8.48-3.66 2.33 2.3 6.14Z"/>
+    <path
+        android:fillColor="#FF78FF75"
+        android:pathData="M13.3 26l5.97-5.5-5.96 0.63V26Z"/>
+    <path
+        android:fillColor="#FF78FF75"
+        android:pathData="M7.35 20.5L13.3 26v-4.87l-5.96-0.64Z"/>
+    <path
+        android:fillColor="#FF78FF75"
+        android:pathData="M13.3 9.05L6 12.02l3.65 2.33 3.66-5.3Z"/>
+    <path
+        android:fillColor="#FF78FF75"
+        android:pathData="M6 12.02l1.35 8.47 2.3-6.14L6 12.02Z"/>
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M13.3 1l0.1-0.06-0.1-0.12-0.08 0.12L13.31 1Zm7.32 11.02l0.09-0.04v-0.01H20.7l-0.08 0.05ZM26 24.52l0.01 0.1 0.13-0.02-0.05-0.12L26 24.52ZM13.3 26v0.1h0.02L13.3 26ZM1 24.52l-0.1-0.04-0.04 0.12 0.13 0.02 0.01-0.1Zm5-12.5l-0.08-0.06v0.01L5.9 11.98 6 12.02Zm9.13 5.72l0.1 0.04-0.1-0.04Zm-1.9-16.68l7.3 11.01 0.17-0.1-7.3-11.03-0.18 0.12Zm7.3 11l5.38 12.5 0.18-0.08-5.38-12.5-0.19 0.08Zm5.46 12.36l-12.7 1.48 0.03 0.2 12.7-1.48-0.03-0.2ZM13.32 25.9l-12.3-1.48-0.03 0.2 12.3 1.48 0.03-0.2ZM1.09 24.55l5-12.5-0.18-0.07-5 12.5 0.18 0.07Zm5-12.48l7.3-11.01-0.17-0.12-7.3 11.02 0.16 0.11ZM13.2 1v8.05h0.2V1h-0.2Zm0.06 7.96l-7.3 2.96 0.07 0.19 7.3-2.97-0.07-0.18ZM7.29 20.4l-6.34 4.02 0.1 0.17 6.35-4.02-0.1-0.17Zm-0.01 0.16l5.96 5.5 0.14-0.14-5.97-5.51-0.13 0.14Zm6.1 5.5l5.96-5.5-0.14-0.15-5.96 5.5 0.14 0.15Zm5.84-5.5l6.73 4.03 0.1-0.17-6.73-4.02-0.1 0.17Zm0.15-0.06l1.34-8.48-0.2-0.03-1.34 8.48 0.2 0.03Zm1.28-8.59l-7.3-2.96-0.08 0.18 7.3 2.97 0.08-0.19Zm-1.4 8.47l-5.95 0.64 0.02 0.2 5.96-0.64-0.02-0.2Zm-6.04 0.74V26h0.2v-4.87h-0.2Zm0.1-0.1l-5.95-0.64-0.02 0.2 5.96 0.64 0.02-0.2ZM5.96 12.1l3.65 2.33 0.1-0.17-3.65-2.33-0.1 0.17Zm3.61 2.21l-2.3 6.15 0.18 0.07 2.3-6.15-0.18-0.07Zm0.18 0.1l3.65-5.3-0.16-0.12-3.66 5.3 0.17 0.11Zm3.49-5.3l3.65 5.3 0.16-0.12L13.4 9l-0.16 0.12Zm3.79 5.32l3.65-2.33-0.1-0.17-3.66 2.33 0.1 0.17Zm-0.15-0.05l2.3 6.15 0.2-0.07-2.31-6.15-0.2 0.07Zm-3.47 6.7L9.74 14.3l-0.17 0.1 3.65 6.77 0.18-0.09Zm-3.75-6.63h7.31v-0.2h-7.3v0.2Zm7.22-0.15l-1.82 3.39 0.17 0.1 1.83-3.4-0.18-0.09Zm-1.82 3.39l-1.83 3.39 0.18 0.1 1.82-3.4-0.17-0.09ZM5.9 12.03l1.35 8.48 0.2-0.03L6.1 12l-0.2 0.03Z"/>
+</vector>

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/HeadConstraintLayout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DEEAAD"
+    android:background="@color/first_background"
     tools:context=".activities.Game_Screen"
     tools:ignore="ContentDescription">
 
-    <!-- TODO: сдвинуть recyclerы чтобы только фотография и тип были видны -->
+    <!--
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/EnemyCardLayout"
 
@@ -20,6 +21,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_weight="0.5"
             app:layout_constraintHorizontal_weight="5" />
+            -->
+
         <!--TODO: Фон для avatar -->
 
 
@@ -35,50 +38,107 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!--Я понятия не имею куда это впихнуть
         <ImageButton
             android:id="@+id/Menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/button"
             android:src="@drawable/ic_baseline_menu_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+            -->
+
+        <ImageView
+            android:id="@+id/PlayerAvatar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/avatar_1"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintDimensionRatio="10:12"
+            app:layout_constraintEnd_toStartOf="@id/MainMana"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent="0.75" />
+
+        <ImageView
+            android:id="@+id/EnemyAvatar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/avatar_1"
+
+            app:layout_constraintDimensionRatio="10:12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.75" />
+
+
+        <TextView
+            android:id="@+id/temp_ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/Next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/EnemyAvatar" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/MainMana"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="5dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/PlayerAvatar"
+            app:layout_constraintTop_toTopOf="@+id/PlayerAvatar">
+
+            <com.lb.auto_fit_textview.AutoResizeTextView
+                android:id="@+id/Mana"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="5dp"
+                android:background="#FF2DCF29"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Выдвигается recyclerview на верх -->
         <ImageButton
             android:id="@+id/Show"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
+            android:layout_margin="5dp"
             android:background="@drawable/button"
             android:src="@drawable/ic_baseline_arrow_upward_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Drop" />
-        <!-- TODO:расположить нормально -->
-        <ImageView
-            android:id="@+id/Drop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/green_portal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.512"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- TODO:удалить стиль -->
-        <Button
-            android:id="@+id/Generate"
-            style="@style/TextAndButtons"
-            android:backgroundTint="@color/red"
-            android:text="Generate"
-            app:layout_constraintBottom_toTopOf="@+id/Drop"
+            app:layout_constraintBottom_toTopOf="@+id/PlayerAvatar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Next" />
+
+        <ImageButton
+            android:id="@+id/Next"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/green_portal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.8" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -86,14 +146,14 @@
         android:id="@+id/Battlefield"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/Palette4"
+        android:background="@color/Palette5"
         android:gravity="center"
 
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@id/PlayerCardLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/Buttons"
-        app:layout_constraintTop_toBottomOf="@id/EnemyCardLayout"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_weight="4"
         app:layout_constraintHorizontal_weight="6">
 
@@ -102,18 +162,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_gravity="center" />
+            android:background="@color/Palette4"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/PlayerField"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_gravity="center" />
+            android:background="@color/Palette4"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"/>
 
     </LinearLayout>
 
-        <!--TODO:Layout marginStart-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/PlayerCardLayout"
         android:layout_width="0dp"
@@ -121,9 +184,20 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/Buttons"
+        app:layout_constraintStart_toEndOf="@id/Buttons"
         app:layout_constraintTop_toBottomOf="@id/Battlefield"
-        app:layout_constraintVertical_weight="2.5" />
+        app:layout_constraintVertical_weight="1.5" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/PlayerShowCardLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/first_background"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@id/PlayerCardLayout"
+        app:layout_constraintEnd_toEndOf="@id/PlayerCardLayout"
+        app:layout_constraintStart_toStartOf="@id/PlayerCardLayout"
+        app:layout_constraintTop_toTopOf="@id/PlayerCardLayout"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

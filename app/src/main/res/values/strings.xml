@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Game</string>
+    <string name="app_name">Wizard Tournament</string>
     <string name="menu_play">Play</string>
     <string name="placeholder" translatable="false" />
 
@@ -95,5 +95,8 @@
     <string name="input">Enter the title</string>
     <string name="features010">TODO</string>
     <string name="features012">\"Флешбек!\"</string>
+    <string name="profile_changes">Changes will be applied after restart</string>
+    <string name="to_be_added">To be added soon</string>
+    <string name="choose">Choose the card set</string>
 
 </resources>

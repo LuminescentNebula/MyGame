@@ -1,5 +1,6 @@
 package com.example.mygame.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -12,11 +13,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mygame.DBs.FireStoreDBClient;
 import com.example.mygame.DBs.Player;
-import com.example.mygame.DBs.RoomDBClient;
 import com.example.mygame.R;
 import com.google.android.material.slider.Slider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.gson.Gson;
 
 import java.util.Objects;
 import java.util.Random;
@@ -45,10 +46,9 @@ public class Profile extends AppCompatActivity {
                 | View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
 
-        Player player = RoomDBClient
-                .getInstance(getApplicationContext())
-                .getDB()
-                .playerDao().getPlayer();
+        Intent intent = getIntent();
+        Gson gson = new Gson();
+        player = gson.fromJson(intent.getStringExtra("player"), Player.class);
 
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
@@ -56,7 +56,7 @@ public class Profile extends AppCompatActivity {
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signOut();
+                mAuth.signOut();
             }
         });
 
@@ -68,8 +68,9 @@ public class Profile extends AppCompatActivity {
         change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FireStoreDBClient.updateProfileName(user,name.getText().toString());
                 player.setName(name.getText().toString());
+                FireStoreDBClient.updateProfileName(name.getText().toString());
+                name.setText(player.getName());
             }
         });
 
@@ -91,7 +92,6 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
                 avatar.setBackgroundResource(getResources().getIdentifier("avatar_"+(int)value,"drawable",getPackageName()));
-                //Log.d(TAG,"avatar_"+(int)value);
             }
         });
 
@@ -99,29 +99,10 @@ public class Profile extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                FireStoreDBClient.updateAvatar(user,(int)slider.getValue());
                 player.setAvatar((int)slider.getValue());
-                RoomDBClient.getInstance(getApplicationContext())
-                        .getDB()
-                        .playerDao()
-                        .update(player);
+                FireStoreDBClient.updateAvatar(player.getAvatar());
                 onBackPressed();
             }
         });
-
-//        mBinding.verifyEmailButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                sendEmailVerification();
-//            }
-//        });
-    }
-
-    private void signOut() {
-        RoomDBClient
-                .getInstance(getApplicationContext())
-                .getDB()
-                .playerDao().delete(player);
-        mAuth.signOut();
     }
 }

@@ -33,6 +33,7 @@ public class CollectionAdapter extends BaseAdapter<Card> {
     @Override
     protected int[] getResIdOfInflatedViews() {
         return new int[]{
+                //R.id.Card,
                 R.id.Headline, R.id.Picture, R.id.HP,
                 R.id.Power, R.id.Cost, R.id.Type, R.id.FeatureText, R.id.Amount
         } ;
@@ -41,6 +42,7 @@ public class CollectionAdapter extends BaseAdapter<Card> {
     @Override
     public void onBindViewHolder(@NonNull ClickableViewHolder holder, int position) {
         final Card item = getItem(position);
+        //ConstraintLayout    Card        =  (ConstraintLayout)holder.getViewById(R.id.Card);
         AutoResizeTextView  Headline    =  (AutoResizeTextView)holder.getViewById(R.id.Headline);
         ImageView           Picture     =  (ImageView)holder.getViewById(R.id.Picture);
         TextView            HP          =  (TextView)holder.getViewById(R.id.HP);
@@ -58,6 +60,9 @@ public class CollectionAdapter extends BaseAdapter<Card> {
         Type.    setImageResource(item.                   getTypeSym());
         FeatureText.setText      (item.                   getFeature());
         Amount.setVisibility     (View.VISIBLE);
+//        if (item.isGold()){
+//            Card.setBackgroundResource(R.drawable.card_background_gold);
+//        }
 
         Log.d(TAG,playerCards.toString());
         if (playerCards.containsKey(String.valueOf(position))){

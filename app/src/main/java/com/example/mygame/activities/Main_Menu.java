@@ -14,10 +14,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mygame.DBs.CardSet;
 import com.example.mygame.DBs.FireStoreDBClient;
 import com.example.mygame.DBs.Player;
-import com.example.mygame.DBs.RoomDBClient;
 import com.example.mygame.R;
 import com.example.mygame.card.Card;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -71,19 +69,9 @@ public class Main_Menu extends AppCompatActivity {
                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                             player=task.getResult().toObject(Player.class);
                             player.setMoney(Math.toIntExact((Long)task.getResult().get("money")));
-                            player.setUID(user.getUid());
                             if (player !=null) {
                                 updateUI();
                             }
-
-                            CardSet temp = new CardSet();
-                            temp.add(5);
-                            temp.add(7);
-                            temp.add(3);
-                            player.addSet(temp);
-                            FireStoreDBClient.updatePlayer(user,player);
-                            RoomDBClient.getInstance(getApplicationContext()).updateDB(player);
-
                             turnOffLoading();
                             Log.d(TAG,"Task = "+task.getResult().toString());
                         }
@@ -116,27 +104,6 @@ public class Main_Menu extends AppCompatActivity {
         bar.clearAnimation();
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d(TAG,"LifeCycle_"+"onPause");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d(TAG,"LifeCycle_"+"onResume");
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (player !=null) {
-            updateUI();
-        }
-        Log.d(TAG,"LifeCycle_"+"onStart");
-    }
-
     private void updateUI() {
         TextView displayName = findViewById(R.id.display_name);
         displayName.setText(player.getName());
@@ -156,35 +123,19 @@ public class Main_Menu extends AppCompatActivity {
         Log.d(TAG,"UI updated");
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d(TAG,"LifeCycle_"+"onStop");
-    }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d(TAG,"LifeCycle_"+"onDestroy");
-    }
-
-    @Override
-    protected void onRestart(){
-        super.onRestart();
-        Log.d(TAG,"LifeCycle_"+"onRestart");
-    }
 
     public void StartGame(View view) {
-        Intent intent = new Intent(Main_Menu.this, Game_Screen.class);
+        Intent intent = new Intent(Main_Menu.this, Find_Game.class);
+        Gson gson = new Gson();
+        intent.putExtra("player",gson.toJson(player));
         startActivity(intent);
     }
 
     public void OpenCollection(View view) {
         Intent intent = new Intent(Main_Menu.this,Card_Collection.class);
-        Gson gson = new Gson();
-        Log.d(TAG,"Allcards :"+player.getAllCards().toString());
-        Log.d(TAG,"JSON :"+gson.toJson(player));
 
+        Gson gson = new Gson();
         intent.putExtra("player",gson.toJson(player));
         startActivity(intent);
     }
@@ -199,8 +150,7 @@ public class Main_Menu extends AppCompatActivity {
             moreCards.put(String.valueOf(random.nextInt(Card.values().length)), Math.abs(random.nextInt() % 10));
             moreCards.put(String.valueOf(random.nextInt(Card.values().length)), Math.abs(random.nextInt() % 10));
             player.addCards(moreCards);
-            //FIXME: Ошибка синхронизации возможно sets
-            FireStoreDBClient.updatePlayer(user, player);
+            FireStoreDBClient.updatePlayer(player);
             //Intent intent = new Intent(Main_Menu.this,Card_Collection.class);
             //startActivity(intent);
             updateUI();
@@ -212,16 +162,17 @@ public class Main_Menu extends AppCompatActivity {
     public void OpenMoney(View view) {
         player.addMoney(1);
         updateUI();
-        FireStoreDBClient.updateMoney(user,player.getMoney());
-        RoomDBClient.getInstance(getApplicationContext()).updateDB(player);
+        FireStoreDBClient.updateMoney(player.getMoney());
         Toast.makeText(this,"Not working yet",Toast.LENGTH_SHORT).show();
         //Intent intent = new Intent(Main_Menu.this,Money.class);
         //startActivity(intent);
     }
 
     public void OpenProfile(View view) {
-        Intent intent = new Intent(Main_Menu.this,Profile.class);
-        intent.putExtra("avatar",player.getAvatar());
+        Intent intent = new Intent();
+        Gson gson = new Gson();
+
+        intent.putExtra("player",gson.toJson(player));
         startActivity(intent);
     }
 
@@ -229,5 +180,66 @@ public class Main_Menu extends AppCompatActivity {
         Toast.makeText(this,"Nothing to set up yet",Toast.LENGTH_SHORT).show();
         //Intent intent = new Intent(Main_Menu.this,SettingsActivity.class);
         //startActivity(intent);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG,"LifeCycle_"+"onPause");
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG,"LifeCycle_"+"onResume");
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    PlayerDocRef = DB.collection("Players").document(user.getUid());
+                    turnOnLoading();
+                    PlayerDocRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            player=task.getResult().toObject(Player.class);
+                            player.setMoney(Math.toIntExact((Long)task.getResult().get("money")));
+                            if (player !=null) {
+                                updateUI();
+                            }
+                            turnOffLoading();
+                            Log.d(TAG,"Task = "+task.getResult().toString());
+                        }
+                    });
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                } else {
+                    Intent intent = new Intent(Main_Menu.this, LoginActivity.class);
+                    startActivity(intent);
+                    Log.d(TAG, "onAuthStateChanged:signed_out");
+                }
+            }
+        };
+        if (player !=null) {
+            updateUI();
+        }
+        Log.d(TAG,"LifeCycle_"+"onStart");
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG,"LifeCycle_"+"onStop");
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG,"LifeCycle_"+"onDestroy");
+    }
+    @Override
+    protected void onRestart(){
+        super.onRestart();
+        Log.d(TAG,"LifeCycle_"+"onRestart");
     }
 }

@@ -8,6 +8,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.CollectionReference;
@@ -19,13 +20,16 @@ import java.util.List;
 import java.util.Random;
 
 public class FireStoreDBClient {
-    private static FirebaseFirestore DB = FirebaseFirestore.getInstance();
-    private static CollectionReference Players = DB.collection("Players");
+    private static FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private static FirebaseAuth.AuthStateListener mAuthListener;
+    private static FirebaseUser user = mAuth.getCurrentUser();
 
     private static final String TAG = "FireStoreDB";
 
-    public static void updateProfileName(FirebaseUser user, String name) {
+    public static void updateProfileName(String name) {
         Log.d(TAG, "Name = " + name);
+        FirebaseFirestore DB = FirebaseFirestore.getInstance();
+        CollectionReference Players = DB.collection("Players");
         //Обновляем профиль
         UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                 .setDisplayName(name)
@@ -53,7 +57,9 @@ public class FireStoreDBClient {
         });
     }
 
-    public static void updateAvatar(FirebaseUser user, int Avatar) {
+    public static void updateAvatar(int Avatar) {
+        FirebaseFirestore DB = FirebaseFirestore.getInstance();
+        CollectionReference Players = DB.collection("Players");
         Players.document(user.getUid()).update("avatar", Avatar)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -68,7 +74,9 @@ public class FireStoreDBClient {
         });
     }
 
-    public static void updateMoney(FirebaseUser user, int money) {
+    public static void updateMoney(int money) {
+        FirebaseFirestore DB = FirebaseFirestore.getInstance();
+        CollectionReference Players = DB.collection("Players");
         Players.document(user.getUid()).update("money", money)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -85,7 +93,7 @@ public class FireStoreDBClient {
 
     public static void createPlayerDocument(FirebaseUser user) {
         HashMap<String, Integer> allCards = new HashMap<String, Integer>();
-        List<CardSet> sets = new ArrayList<>();
+        ArrayList<CardSet> sets = new ArrayList<>();
         Player data = new Player(user.getDisplayName(),
                 new Random().nextInt(10),
                 0,
@@ -93,6 +101,8 @@ public class FireStoreDBClient {
                 sets,
                 user.getUid());
         Log.d(TAG, user.getUid());
+        FirebaseFirestore DB = FirebaseFirestore.getInstance();
+        CollectionReference Players = DB.collection("Players");
 
         Players.document(user.getUid()).set(data)
                 .addOnSuccessListener(new OnSuccessListener() {
@@ -111,8 +121,12 @@ public class FireStoreDBClient {
         });
     }
 
-    public static void updatePlayer(FirebaseUser user, Player player) {
-        Players.document(user.getUid()).set(player)
+    public static void updatePlayer(Player player) {
+        Log.d(TAG, user.getUid());
+        FirebaseFirestore DB = FirebaseFirestore.getInstance();
+        CollectionReference Players = DB.collection("Players");
+        Players.document(user.getUid())
+                .set(player)
                 .addOnSuccessListener(new OnSuccessListener() {
                     @Override
                     public void onSuccess(Object o) {
@@ -126,7 +140,9 @@ public class FireStoreDBClient {
         });
     }
 
-    public static void updateSets(FirebaseUser user,List<CardSet> sets) {
+    public static void updateSets(List<CardSet> sets) {
+        FirebaseFirestore DB = FirebaseFirestore.getInstance();
+        CollectionReference Players = DB.collection("Players");
         Players.document(user.getUid()).update("sets", sets)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -138,5 +154,8 @@ public class FireStoreDBClient {
             public void onFailure(@NonNull Exception e) {
                 Log.d(TAG, "Sets update FAILED");
             }
-        });    }
+        });
+    }
 }
+
+

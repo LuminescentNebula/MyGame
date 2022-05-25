@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">My Game</string>
+    <string name="app_name">Wizard Tournament</string>
     <string name="headline001">Викинг</string>
     <string name="headline002">Вампир</string>
     <string name="headline003">Птичка</string>
@@ -84,4 +84,7 @@
     <string name="features017">TODO</string>
     <string name="features018">TODO</string>
     <string name="features012">\"Флешбек!\"</string>
+    <string name="profile_changes">Изменения будут применены после перезагрузки</string>
+    <string name="to_be_added">Будет добавлено в ближайшее время</string>
+    <string name="choose">Выберите колоду</string>
 </resources>

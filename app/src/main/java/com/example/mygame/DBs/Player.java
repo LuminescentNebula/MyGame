@@ -1,11 +1,5 @@
 package com.example.mygame.DBs;
 
-import androidx.annotation.NonNull;
-import androidx.room.Entity;
-import androidx.room.Ignore;
-import androidx.room.PrimaryKey;
-import androidx.room.TypeConverters;
-
 import com.google.firebase.firestore.Exclude;
 import com.google.firebase.firestore.PropertyName;
 
@@ -14,35 +8,41 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-@Entity
+
 public class Player implements Serializable {
-    @NonNull @PrimaryKey @Exclude
+
     private String UID;
 
     private String Name;
     private int Money;
     private int Avatar;
-    @PropertyName("allCards") @TypeConverters({HashMapConverter.class})
+    @PropertyName("allCards")
     private HashMap<String, Integer> AllCards = new HashMap<>();
-    @PropertyName("sets") @TypeConverters({ListConverter.class})
-    private List<CardSet> Sets = new ArrayList<>();
-    @Ignore @Exclude
+    private List<CardSet> Sets;
+    @Exclude
     private final int MaxSets = 9;
 
-    public Player(String name, int avatar,int money,HashMap<String,Integer> allCards,List<CardSet> sets,String UID) {
+    public Player(String name, int avatar,int money,HashMap<String,Integer> allCards,ArrayList<CardSet> sets,String UID) {
         this.Name = name;
         this.Avatar = avatar;
         this.Money = money;
         this.AllCards = allCards;
         this.Sets = sets;
-        this.UID = UID;
+        this.UID=UID;
     }
 
     public void setMoney(int money) {
         Money = money;
     }
     public void setName(String name) {
-        Name = name;
+        if (name != null) {
+            if (name.length() > 25) {
+                name = name.substring(0, 24);
+            }
+            Name = name;
+        } else {
+            Name = "NoName";
+        }
     }
     public void setAvatar(int avatar) {
         Avatar = avatar;
@@ -75,15 +75,16 @@ public class Player implements Serializable {
             return 0;
         }
     }
-    public CardSet getSet(int i){
-        return Sets.get(i);
-    }
-    @Exclude
+
+
     public String getUID() {
         return UID;
     }
     public void setUID(String UID) {
         this.UID = UID;
+    }
+    public CardSet getSet(int i){
+        return Sets.get(i);
     }
     public Player() { }
     public String getName() {

@@ -78,14 +78,6 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="TextAndButtons">
-        <item name="android:layout_width">100dp</item>
-        <item name="android:layout_height">30dp</item>
-        <item name="android:textAlignment">center</item>
-        <item name="android:textSize">7sp</item>
-        <item name="android:inputType">number</item>
-    </style>
-
     <style name="Buttons">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
