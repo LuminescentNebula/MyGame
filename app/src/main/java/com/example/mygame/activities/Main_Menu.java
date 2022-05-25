@@ -167,10 +167,10 @@ public class Main_Menu extends AppCompatActivity {
     }
 
     public void OpenMoney(View view) {
-        player.addMoney(1);
+        player.addMoney(5);
         updateUI();
         FireStoreDBClient.updateMoney(player.getMoney());
-        Toast.makeText(this,"Not working yet",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this,"Not working yet",Toast.LENGTH_SHORT).show();
         //Intent intent = new Intent(Main_Menu.this,Money.class);
         //startActivity(intent);
     }
