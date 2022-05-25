@@ -1,0 +1,107 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:8457029006299119085",
+      "lastPropertyId": "11:4478788200795410462",
+      "name": "CardSet",
+      "properties": [
+        {
+          "id": "1:5549572419425629353",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "3:3157486880666834689",
+          "name": "CurrentSize",
+          "type": 5
+        },
+        {
+          "id": "7:6955631124776698802",
+          "name": "Name",
+          "type": 9
+        },
+        {
+          "id": "8:7211985426038968168",
+          "name": "Ready",
+          "type": 1
+        },
+        {
+          "id": "10:1471156421259760795",
+          "name": "TheSet",
+          "type": 23
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:2507891889697075433",
+      "lastPropertyId": "11:5943629929931285244",
+      "name": "Player",
+      "properties": [
+        {
+          "id": "1:736563909235499573",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7164378287040159228",
+          "name": "Name",
+          "type": 9
+        },
+        {
+          "id": "3:5454304754885132719",
+          "name": "Money",
+          "type": 5
+        },
+        {
+          "id": "4:5953435671746793943",
+          "name": "Avatar",
+          "type": 5
+        },
+        {
+          "id": "9:5012411923447593155",
+          "name": "AllCards",
+          "type": 23
+        }
+      ],
+      "relations": [
+        {
+          "id": "2:1977676831809882150",
+          "name": "Sets",
+          "targetId": "1:8457029006299119085"
+        }
+      ]
+    }
+  ],
+  "lastEntityId": "2:2507891889697075433",
+  "lastIndexId": "0:0",
+  "lastRelationId": "2:1977676831809882150",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [
+    8387353452779466037,
+    4111384058548261856,
+    5728592096163122135,
+    4847186714435770571,
+    4213898264108209284,
+    2857309601628148205,
+    6350821391073682260,
+    6993614121339135609,
+    4478788200795410462,
+    193386233067867271,
+    795900815435029132,
+    5943629929931285244
+  ],
+  "retiredRelationUids": [
+    2674472090466083953
+  ],
+  "version": 1
+}

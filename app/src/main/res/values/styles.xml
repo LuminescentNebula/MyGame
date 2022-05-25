@@ -16,15 +16,11 @@
     <style name="CardHeadlineText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
-        <item name="android:textAllCaps">true</item>
+        <item name="android:textAllCaps">false</item>
         <item name="android:textAlignment">center</item>
         <item name="android:gravity">center</item>
-        <item name="android:maxLines">1</item>
-        <item name="autoSizeTextType">uniform</item>
-        <item name="android:elegantTextHeight">true</item>
         <item name="android:textColor">@color/text_color</item>
         <item name="android:background">@drawable/background_name</item>
-        <item name="singleLine">true</item>
     </style>
 
     <style name="CardGemText">
@@ -55,12 +51,9 @@
     </style>
 
     <style name="CardFeatureText">
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">0dp</item>
         <item name="android:textAlignment">center</item>
-        <item name="autoSizeTextType">uniform</item>
-        <item name="android:minLines">5</item>
-        <item name="android:elegantTextHeight">true</item>
         <item name="android:textColor">@color/text_color</item>
         <item name="android:gravity">center</item>
     </style>
@@ -85,12 +78,9 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="TextAndButtons">
-        <item name="android:layout_width">100dp</item>
-        <item name="android:layout_height">30dp</item>
-        <item name="android:textAlignment">center</item>
-        <item name="android:textSize">7sp</item>
-        <item name="android:inputType">number</item>
+    <style name="Buttons">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="Radio">
@@ -102,7 +92,7 @@
     </style>
 
     <style name="Avatar">
-        <item name="android:background">@color/Palette1</item>
+        <item name="android:background">@color/Palette4</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>

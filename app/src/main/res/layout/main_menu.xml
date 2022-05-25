@@ -5,9 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFDEEAAD"
-    tools:context=".activities.Main_Menu">
+
+    tools:context=".activities.Main_Menu"
+    tools:ignore="ContentDescription">
+
+    <!-- TODO: СПРОСИТЬ НАДО ЛИ ПТИЦУ-->
 
     <!--TODO: Красивая кнопка нужна -->
+    <LinearLayout
+        android:id="@+id/progressMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/first_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="3dp"
+        android:visibility="gone">
+        <ImageView
+            android:id="@+id/progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="100dp"
+            android:src="@drawable/bird"/>
+    </LinearLayout>
+
     <Button
         android:id="@+id/Play"
         android:layout_width="200dp"
@@ -21,42 +44,51 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <ImageButton
         android:id="@+id/Settings"
-        android:layout_width="90dp"
+        android:layout_width="0dp"
+        app:layout_constraintHeight_percent="0.1"
         android:layout_height="0dp"
-        android:src="@drawable/gear"
         android:onClick="OpenSettings"
+        android:src="@drawable/gear"
         app:layout_constraintDimensionRatio="2:1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Profile" />
 
     <ImageButton
         android:id="@+id/Profile"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/avatar_001"
-        android:onClick="OpenProfile"
-
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageButton
-        android:id="@+id/Money"
-        android:layout_width="90dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/gem_red"
-        android:onClick="OpenMoney"
-        app:layout_constraintDimensionRatio="2:1"
+        android:background="@drawable/avatar_1"
+        android:onClick="OpenProfile"
+        app:layout_constraintDimensionRatio="1:1"
+
+        app:layout_constraintHeight_percent="0.25"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/display_name"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text=""
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        app:layout_constraintHeight_percent="0.1"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/Profile" />
+        app:layout_constraintStart_toEndOf="@id/Profile">
+    </TextView>
 
     <ImageButton
         android:id="@+id/Lootboxes"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:onClick="OpenLootboxes"
+        android:background="@drawable/random"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintDimensionRatio="1:1"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,11 +96,49 @@
 
     <ImageButton
         android:id="@+id/Collection"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintDimensionRatio="1:1"
         android:onClick="OpenCollection"
-
+        android:background="@drawable/gallery"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/Palette3">
+        <TextView
+            android:id="@+id/MoneyAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textStyle="italic"
+            android:textAlignment="center"
+            android:layout_margin="5dp"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/Money"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/money"
+                android:onClick="OpenMoney"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

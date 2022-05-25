@@ -19,6 +19,7 @@
     <color name="Palette4">#FFCC6699</color>
     <color name="Palette5">#FF6B6D76</color>
     <color name="first_background">#FFDEEAAD</color>
-    <color name="second_background">#A7B378</color>
-
+    <color name="second_background">#FFA7B378</color>
+    <color name="buttons">#FFBBE5ED</color>
+    <color name="green_gem">#FF2DCF29</color>
 </resources>

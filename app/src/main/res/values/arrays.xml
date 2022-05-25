@@ -1,0 +1,44 @@
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="theme_entries">
+        <item>@string/day</item>
+    </string-array>
+<!--         <item>@string/night</item>
+        <item>@string/system</item> -->
+    <string-array name="theme_values">
+        <item>@style/Theme.MyGame</item>
+    </string-array>
+    <!--<item>night</item>
+        <item>system</item> -->
+    <string-array name="player_names">
+        <item>Ubras</item>
+        <item>Uvius</item>
+        <item>Ubis</item>
+        <item>Vunneas</item>
+        <item>Shuro</item>
+        <item>Lironin</item>
+        <item>Rhineth</item>
+        <item>Igaell</item>
+        <item>Iro</item>
+        <item>Hidarin</item>
+        <item>Orlamaex</item>
+        <item>Stuwyn</item>
+        <item>Onvoqiohr</item>
+        <item>Astrum</item>
+        <item>Aveus</item>
+        <item>Kriphiar</item>
+        <item>Egorim</item>
+        <item>Araprix</item>
+        <item>Strovior</item>
+        <item>Ovataz</item>
+        <item>Anilorh</item>
+        <item>Rhadali</item>
+        <item>Ador</item>
+        <item>Ahesior</item>
+        <item>Ellomal</item>
+        <item>Onomal</item>
+        <item>Kodali</item>
+        <item>Odel</item>
+        <item>Ennavius</item>
+=    </string-array>
+</resources>

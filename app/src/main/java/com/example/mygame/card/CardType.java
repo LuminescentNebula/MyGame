@@ -42,4 +42,25 @@ public enum CardType {
         }
         return 0;
     }
+
+    public int symCard() {
+        switch (this) {
+            case Human:
+                return R.drawable.type_0;
+            case Vegetation:
+                return R.drawable.type_1;
+            case Monster:
+                return R.drawable.type_2;
+            case Robot:
+                return R.drawable.type_3;
+            case Undead:
+                return R.drawable.type_4;
+            case Abstract:
+                return R.drawable.type_5;
+            //case Every:
+            //    return R.drawable.type_6;
+        }
+        return 0;
+    }
+
 }

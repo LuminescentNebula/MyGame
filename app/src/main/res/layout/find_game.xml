@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/first_background"
+    tools:context=".activities.Find_Game"
+    tools:ignore="ContentDescription">
+
+    <com.lb.auto_fit_textview.AutoResizeTextView
+        android:id="@+id/Choose"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/choose"
+        android:maxLines="1"
+        android:gravity="center"
+        android:textAlignment="center"
+        app:layout_constraintWidth_percent="0.15"
+        app:layout_constraintBottom_toTopOf="@+id/sets"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/GoBack"
+        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/btn"
+        app:layout_constraintHeight_percent="0.071"
+        app:layout_constraintDimensionRatio="46:31"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <LinearLayout
+        android:id="@+id/sets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/progress">
+
+        <ImageButton
+            android:id="@+id/set1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn"
+            android:longClickable="true"
+            android:src="@drawable/ic_baseline_filter_1_24"
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/set2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn"
+            android:longClickable="true"
+            android:src="@drawable/ic_baseline_filter_2_24"
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/set3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn"
+            android:longClickable="true"
+            android:src="@drawable/ic_baseline_filter_3_24"
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/set4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn"
+            android:longClickable="true"
+            android:src="@drawable/ic_baseline_filter_4_24"
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/set5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn"
+            android:longClickable="true"
+            android:src="@drawable/ic_baseline_filter_5_24"
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/set6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn"
+            android:longClickable="true"
+            android:src="@drawable/ic_baseline_filter_6_24"
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/set7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn"
+            android:longClickable="true"
+            android:src="@drawable/ic_baseline_filter_7_24"
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/set8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn"
+            android:longClickable="true"
+            android:src="@drawable/ic_baseline_filter_8_24"
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/set9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn"
+            android:longClickable="true"
+            android:src="@drawable/ic_baseline_filter_9_24"
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/progress"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/placeholder"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintWidth_percent="0.15"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sets"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

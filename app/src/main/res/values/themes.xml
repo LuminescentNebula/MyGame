@@ -18,7 +18,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
+    <!--TODO ТЕМы -->
     <style name="Theme.MyGame.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.MyGame.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
